@@ -1,5 +1,12 @@
+import CreateButton from "./CreateButton";
+
 const Header: React.FC = () => {
-  return <div>Header</div>;
+  return (
+    <div>
+      <h1>Header</h1>
+      <CreateButton />
+    </div>
+  );
 };
 
 export default Header;
