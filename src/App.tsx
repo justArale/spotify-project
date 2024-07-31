@@ -1,9 +1,12 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Landingpage from "./pages/Landingpage";
 
 function App() {
   return (
     <div className="App">
-      <h1>Spotify Project</h1>
+      <Routes>
+        <Route path="/" element={<Landingpage />} />
+      </Routes>
     </div>
   );
 }
