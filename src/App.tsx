@@ -1,12 +1,11 @@
-import React from "react";
-
+import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Landingpage from "./pages/Landingpage";
 import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Routes>
         <Route path="/" element={<Landingpage />} />
       </Routes>

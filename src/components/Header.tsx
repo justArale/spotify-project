@@ -1,6 +1,6 @@
 import React from "react";
 import CreateButton from "./CreateButton";
-import CoverImage from "../assets/Cover.jpg";
+import CoverImage from "../assets/Cover.png";
 
 const Header: React.FC = () => {
   return (
