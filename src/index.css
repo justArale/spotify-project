@@ -33,6 +33,10 @@
   color: var(--color-black);
 }
 
+.whiteFont {
+  color: var(--color-white);
+}
+
 .mainColor {
   color: var(--main-color);
 }
