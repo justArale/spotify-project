@@ -1,4 +1,5 @@
 .boxWrapper {
+  max-width: 800px;
   padding: 0 16px;
   box-sizing: border-box;
   width: 100%;
