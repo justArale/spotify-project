@@ -1,0 +1,35 @@
+.overlay-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.5); */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.overlay-content {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  z-index: 12;
+  max-width: 500px;
+  width: 82vw;
+}
+
+/* SearchArtist.tsx */
+
+/* SelectMood.tsx */
