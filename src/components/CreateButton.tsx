@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import newIcon from "../assets/icons/new.svg";
 import SearchArtist from "./SearchArtist";
 import SelectMood from "./SelectMood";
+import LoadingPlaylist from "./LoadingPlaylist";
 import "./Overlay.css";
 import axios from "axios";
 
@@ -71,35 +72,16 @@ interface GeneratePlaylistProps {
 
 const GeneratePlaylist: React.FC<GeneratePlaylistProps> = ({ onClose }) => {
   const [artistID, setArtistID] = useState<string>("");
-  const [danceMin, setDanceMin] = useState<number>(0);
-  const [danceMax, setDanceMax] = useState<number>(0);
-  const [linkToResults, setLinkToResults] = useState<{
-    pathname: string;
-    state: { artistID: string; danceMin: number; danceMax: number };
-  } | null>(null);
-
-  useEffect(() => {
-    if (artistID && danceMin !== null && danceMax !== null) {
-      setLinkToResults({
-        pathname: "/result",
-        state: {
-          artistID: artistID,
-          danceMin: danceMin,
-          danceMax: danceMax,
-        },
-      });
-    }
-  }, [artistID, danceMin, danceMax]);
+  const [danceMin, setDanceMin] = useState<number | null>(null);
+  const [danceMax, setDanceMax] = useState<number | null>(null);
 
   const getDanceability = (min: number, max: number) => {
     setDanceMin(min);
     setDanceMax(max);
-    console.log(danceMin, danceMax);
   };
 
   const getArtistId = (chosenArtistId: string) => {
     setArtistID(chosenArtistId);
-    console.log(artistID);
   };
 
   return (
@@ -108,9 +90,15 @@ const GeneratePlaylist: React.FC<GeneratePlaylistProps> = ({ onClose }) => {
       <div className="overlay-content">
         {!artistID ? (
           <SearchArtist getArtistId={getArtistId} />
-        ) : (
+        ) : artistID && danceMin === null ? (
           <SelectMood getDanceability={getDanceability} />
-        )}
+        ) : artistID && danceMin !== null && danceMax !== null ? (
+          <LoadingPlaylist
+            artistID={artistID}
+            danceMin={danceMin}
+            danceMax={danceMax}
+          />
+        ) : null}
       </div>
     </div>
   );
