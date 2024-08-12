@@ -118,11 +118,13 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
       <h1 className="title">Search Artist</h1>
       <form onSubmit={handleSubmit} className="contentField">
         <div className="searchBarWrapper">
-          <img
-            src={searchIcon}
-            alt="Icon of a magnifying glass"
-            className="searchIcon"
-          />
+          <div className="iconWrapper">
+            <img
+              src={searchIcon}
+              alt="Icon of a magnifying glass"
+              className="searchIcon"
+            />
+          </div>
           <input
             type="text"
             value={artistNameInput}
@@ -153,7 +155,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
                   </div>
                 )}
 
-              <span className="mainFont artistName">{artist.name}</span>
+              <span className="inputFont artistName">{artist.name}</span>
               <img
                 src={arrowIcon}
                 alt="Icon of an arrow that shows to the right side"
