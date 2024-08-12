@@ -114,7 +114,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
   };
 
   return (
-    <div className="searchArtistWrapper">
+    <div className="contentFieldWrapper">
       <h1 className="title">Search Artist</h1>
       <form onSubmit={handleSubmit} className="contentField">
         <div className="searchBarWrapper">
@@ -136,12 +136,12 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
       </form>
 
       {artistNameInput.trim() !== "" && searchResults.length > 0 && (
-        <ul className="artistList">
+        <ul className="contentList">
           {searchResults.slice(0, 5).map((artist) => (
             <li
               key={artist.id}
               onClick={() => handleOptionClick(artist)}
-              className="contentField artisWrapper"
+              className="contentField contentListItem"
             >
               {artist.images &&
                 artist.images.length > 0 &&
@@ -155,7 +155,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
                   </div>
                 )}
 
-              <span className="inputFont artistName">{artist.name}</span>
+              <span className="inputFont contentText">{artist.name}</span>
               <img
                 src={arrowIcon}
                 alt="Icon of an arrow that shows to the right side"

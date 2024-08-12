@@ -1,4 +1,5 @@
 import React from "react";
+import arrowIcon from "../assets/icons/arrow.svg";
 
 // const API_TRACK = `https://api.spotify.com/v1/audio-features/${trackId}/danceability`;
 
@@ -6,45 +7,79 @@ interface MoodProps {
   getDanceability: (min: number, max: number) => void;
 }
 
-const RangeButton: React.FC<MoodProps> = ({ getDanceability }) => {
+const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
   const moodSelector = (id: string, min: number, max: number) => {
     localStorage.setItem("mood", id);
     return getDanceability(min, max);
   };
 
   return (
-    <section className="">
-      <h4 className="">Select Your Mood</h4>
-      <ul className="">
-        <li className="" onClick={() => moodSelector("sleepy", 0.0, 0.2)}>
-          <button id="sleepy">
-            💤 <span className="ml-2 lg:ml-3">Sleepy</span>
-          </button>
+    <div className="contentFieldWrapper">
+      <h4 className="title">Select Mood</h4>
+      <ul className="contentList">
+        <li
+          className="contentField contentListItem"
+          onClick={() => moodSelector("sleepy", 0.0, 0.2)}
+        >
+          <p id="sleepy" className="inputFont contentText">
+            💤 <span>Sleepy</span>
+          </p>
+          <img
+            src={arrowIcon}
+            alt="Icon of an arrow that shows to the right side"
+          />
         </li>
-        <li className="" onClick={() => moodSelector("calm", 0.201, 0.4)}>
-          <button id="calm">
-            🛁 <span className="ml-2 lg:ml-3">Calm</span>
-          </button>
+        <li
+          className="contentField contentListItem"
+          onClick={() => moodSelector("calm", 0.201, 0.4)}
+        >
+          <p id="calm" className="inputFont contentText">
+            🛁 <span>Calm</span>
+          </p>
+          <img
+            src={arrowIcon}
+            alt="Icon of an arrow that shows to the right side"
+          />
         </li>
-        <li className="" onClick={() => moodSelector("studying", 0.401, 0.6)}>
-          <button id="studying">
-            📚 <span className="ml-2 lg:ml-3">Studying</span>
-          </button>
+        <li
+          className="contentField contentListItem"
+          onClick={() => moodSelector("studying", 0.401, 0.6)}
+        >
+          <p id="studying" className="inputFont contentText">
+            📚 <span>Studying</span>
+          </p>
+          <img
+            src={arrowIcon}
+            alt="Icon of an arrow that shows to the right side"
+          />
         </li>
-        <li className="" onClick={() => moodSelector("cooking", 0.601, 0.8)}>
-          <button id="cooking">
-            🍳 <span className="ml-2 lg:ml-3">Cooking</span>
-          </button>
+        <li
+          className="contentField contentListItem"
+          onClick={() => moodSelector("cooking", 0.601, 0.8)}
+        >
+          <p id="cooking" className="inputFont contentText">
+            🍳 <span>Cooking</span>
+          </p>
+          <img
+            src={arrowIcon}
+            alt="Icon of an arrow that shows to the right side"
+          />
         </li>
-        <li className="" onClick={() => moodSelector("dancing", 0.801, 1)}>
-          <button id="dancing">
-            🕺 <span className="ml-2 lg:ml-3">Dancing</span>
-          </button>
+        <li
+          className="contentField contentListItem"
+          onClick={() => moodSelector("dancing", 0.801, 1)}
+        >
+          <p id="dancing" className="inputFont contentText">
+            🕺 <span>Dancing</span>
+          </p>
+          <img
+            src={arrowIcon}
+            alt="Icon of an arrow that shows to the right side"
+          />
         </li>
-        <li className="">*Mood is required</li>
       </ul>
-    </section>
+    </div>
   );
 };
 
-export default RangeButton;
+export default SelectMood;
