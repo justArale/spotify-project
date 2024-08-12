@@ -53,10 +53,15 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
 
   // Once the playlist is loaded, you can render the data or redirect to another component.
   return (
-    <div className="contentFieldWrapper">
+    <div>
       {!playlistData ? (
-        <div>
-          <img src={loadingIcon} alt="Loading Image" />
+        <div className="contentFieldWrapper">
+          <h1 className="title">Done</h1>
+
+          <img src={loadingIcon} alt="Loading Image" className="loadingImage" />
+          <p className="inputFont contentText">
+            Your playlist will be generated.
+          </p>
         </div>
       ) : null}
     </div>
