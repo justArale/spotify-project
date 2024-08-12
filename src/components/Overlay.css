@@ -29,6 +29,49 @@
   border-radius: 20px;
 }
 
+.contentFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding: 48px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.contentField {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid #9f8fbf;
+  cursor: pointer;
+}
+
+.contentList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.contentListItem {
+  list-style: none;
+  padding: 12px 16px;
+}
+
+.contentText {
+  flex-grow: 1;
+}
+
 /* SearchArtist.tsx */
 
 /* SelectMood.tsx */
