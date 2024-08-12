@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./SearchArtist.css";
 
 interface ArtistProps {
   getArtistId: (id: string) => void;
@@ -71,6 +72,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
       setSelectedArtist(response.data);
       getArtistId(response.data.id);
       localStorage.setItem("artistImage", response.data.images[0]?.url || "");
+      localStorage.setItem("artist", response.data.name);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log("Error searching for artist image:", error.response?.data);
@@ -87,7 +89,6 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
       artistNameInput.length >= minSearchLength
     ) {
       searchArtist();
-      localStorage.setItem("artist", artistNameInput);
     } else {
       setSearchResults([]); // Clear results if input is empty or too short
     }
@@ -111,29 +112,41 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
   };
 
   return (
-    <div>
+    <div className="searchArtistWrapper">
+      <h1 className="title">Search Artist</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={artistNameInput}
           onChange={(e) => setArtistNameInput(e.target.value)}
         />
-        <button type="submit">Search</button>
+        {/* <button type="submit">Search</button> */}
       </form>
-      <ul>
-        {searchResults.map((artist) => (
-          <li key={artist.id} onClick={() => handleOptionClick(artist)}>
-            {artist.name}
-          </li>
-        ))}
-      </ul>
-      {selectedArtist && (
-        <div>
-          {selectedArtist.images[0] && (
-            <img src={selectedArtist.images[0].url} alt={selectedArtist.name} />
-          )}
-          <h2>{selectedArtist.name}</h2>
-        </div>
+
+      {artistNameInput.trim() !== "" && searchResults.length > 0 && (
+        <ul className="artistList">
+          {searchResults.slice(0, 5).map((artist) => (
+            <li
+              key={artist.id}
+              onClick={() => handleOptionClick(artist)}
+              className="artisWrapper"
+            >
+              {artist.images &&
+                artist.images.length > 0 &&
+                artist.images[0].url && (
+                  <div className="artistImageWrapper">
+                    <img
+                      src={artist.images[0].url}
+                      alt={artist.name}
+                      className="artistImage"
+                    />
+                  </div>
+                )}
+
+              <span className="mainFont">{artist.name}</span>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
