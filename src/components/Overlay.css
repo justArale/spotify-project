@@ -75,3 +75,17 @@
 /* SearchArtist.tsx */
 
 /* SelectMood.tsx */
+
+/* LoadingPlaylist.tsx */
+.loadingImage {
+  animation: rotation 1.3s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
