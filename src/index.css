@@ -83,6 +83,12 @@
   margin: 0;
 }
 
+.inputFont {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-normal);
+  margin: 0;
+}
+
 .numberFont {
   font-size: var(--font-size-xsmall);
   font-weight: var(--font-weight-bold);
