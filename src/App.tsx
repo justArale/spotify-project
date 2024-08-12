@@ -1,13 +1,17 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Landingpage from "./pages/Landingpage";
+import Resultpage from "./pages/Resultpage";
+import Errorpage from "./pages/Errorpage";
 import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="page">
       <Routes>
         <Route path="/" element={<Landingpage />} />
+        <Route path="/result" element={<Resultpage />} />
+        <Route path="*" element={<Errorpage />} />
       </Routes>
       <Footer />
     </div>

@@ -1,0 +1,14 @@
+.startButton {
+  width: auto;
+  height: auto;
+  background-color: var(--main-color);
+  border-radius: 90px;
+  border: 1px solid #6030bf;
+  padding: 8px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
