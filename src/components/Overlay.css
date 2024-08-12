@@ -23,11 +23,9 @@
 .overlay-content {
   position: relative;
   background-color: #fff;
-  padding: 20px;
-  border-radius: 20px;
   z-index: 1001;
-  max-width: 500px;
-  width: 82vw;
+  width: 56vw;
+  border-radius: 20px;
 }
 
 /* SearchArtist.tsx */
