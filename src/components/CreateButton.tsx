@@ -88,34 +88,30 @@ const GeneratePlaylist: React.FC<GeneratePlaylistProps> = ({ onClose }) => {
           danceMax: danceMax,
         },
       });
-      window.scrollTo(0, 0);
     }
   }, [artistID, danceMin, danceMax]);
 
   const getDanceability = (min: number, max: number) => {
     setDanceMin(min);
     setDanceMax(max);
+    console.log(danceMin, danceMax);
   };
 
   const getArtistId = (chosenArtistId: string) => {
-    // Korrigiert: Typ `string` anstelle von `Number`
     setArtistID(chosenArtistId);
+    console.log(artistID);
   };
-
-  console.log(artistID);
-  console.log(danceMin, danceMax);
 
   return (
     <div className="overlay">
       <div className="overlay-background" onClick={onClose}></div>
       <div className="overlay-content">
-        <SearchArtist getArtistId={getArtistId} />
-      </div>
-      {artistID && (
-        <div className="overlay">
+        {!artistID ? (
+          <SearchArtist getArtistId={getArtistId} />
+        ) : (
           <SelectMood getDanceability={getDanceability} />
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
