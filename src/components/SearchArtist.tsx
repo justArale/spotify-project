@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./SearchArtist.css";
 import arrowIcon from "../assets/icons/arrow.svg";
+import searchIcon from "../assets/icons/search.svg";
 
 interface ArtistProps {
   getArtistId: (id: string) => void;
@@ -115,13 +116,21 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
   return (
     <div className="searchArtistWrapper">
       <h1 className="title">Search Artist</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={artistNameInput}
-          onChange={(e) => setArtistNameInput(e.target.value)}
-          placeholder="Search Artist"
-        />
+      <form onSubmit={handleSubmit} className="contentField">
+        <div className="searchBarWrapper">
+          <img
+            src={searchIcon}
+            alt="Icon of a magnifying glass"
+            className="searchIcon"
+          />
+          <input
+            type="text"
+            value={artistNameInput}
+            onChange={(e) => setArtistNameInput(e.target.value)}
+            placeholder="Search Artist"
+            className="searchBar inputFont"
+          />
+        </div>
       </form>
 
       {artistNameInput.trim() !== "" && searchResults.length > 0 && (
@@ -130,7 +139,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
             <li
               key={artist.id}
               onClick={() => handleOptionClick(artist)}
-              className="artisWrapper"
+              className="contentField artisWrapper"
             >
               {artist.images &&
                 artist.images.length > 0 &&
