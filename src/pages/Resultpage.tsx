@@ -21,10 +21,8 @@ const Resultpage: React.FC<ResultProps> = ({ playlistData }) => {
   };
 
   return (
-    <div>
-      <div>
-        <SelectedArtist />
-      </div>
+    <div className="landingPageWrapper">
+      <SelectedArtist />
       <h5>Your playlist will be displayed here ✌️</h5>
       {/* <ul>
         {playlistData.map((track: any) => (
