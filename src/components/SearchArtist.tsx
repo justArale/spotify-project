@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./SearchArtist.css";
+import arrowIcon from "../assets/icons/arrow.svg";
 
 interface ArtistProps {
   getArtistId: (id: string) => void;
@@ -119,8 +120,8 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
           type="text"
           value={artistNameInput}
           onChange={(e) => setArtistNameInput(e.target.value)}
+          placeholder="Search Artist"
         />
-        {/* <button type="submit">Search</button> */}
       </form>
 
       {artistNameInput.trim() !== "" && searchResults.length > 0 && (
@@ -143,7 +144,11 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
                   </div>
                 )}
 
-              <span className="mainFont">{artist.name}</span>
+              <span className="mainFont artistName">{artist.name}</span>
+              <img
+                src={arrowIcon}
+                alt="Icon of an arrow that shows to the right side"
+              />
             </li>
           ))}
         </ul>

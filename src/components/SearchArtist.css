@@ -47,3 +47,7 @@
   object-fit: contain; /* Ensure the image fits without being cropped */
   object-position: center; /* Center the image */
 }
+
+.artistName {
+  flex-grow: 1;
+}
