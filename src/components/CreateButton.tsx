@@ -117,6 +117,7 @@ const GeneratePlaylist: React.FC<GeneratePlaylistProps> = ({ onClose }) => {
             artistID={artistID}
             danceMin={danceMin}
             danceMax={danceMax}
+            onClose={onClose}
           />
         ) : null}
       </div>

@@ -8,12 +8,14 @@ interface GenerateProps {
   artistID: string;
   danceMin: number;
   danceMax: number;
+  onClose: () => void;
 }
 
 const LoadingPlaylist: React.FC<GenerateProps> = ({
   artistID,
   danceMin,
   danceMax,
+  onClose,
 }) => {
   const tokenFromLocalStorage = localStorage.getItem("accessTokenLocal");
   const { playlistData, setPlaylistData } = useContext(CollectContext);
@@ -32,6 +34,14 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
       setPlaylistData(response.data.tracks);
       console.log(response.data.tracks);
       navigate("/result");
+      // Close the overlay, if the current URL path is '/result' insteat of reload
+      onClose();
+
+      //   // Check if the current URL path is '/result'
+      //   if (window.location.pathname === "/result") {
+      //     // Reload the page if on the '/result' page
+      //     window.location.reload();
+      //   }
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log("Error searching for artists:", error.response?.data);
