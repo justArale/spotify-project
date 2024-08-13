@@ -26,3 +26,7 @@
 .connectDescription {
   text-align: center;
 }
+
+.disable {
+  cursor: not-allowed;
+}

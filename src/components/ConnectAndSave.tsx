@@ -21,6 +21,7 @@ const SCOPES_URL_PARAMS: string = SCOPES.join(SPACE);
 
 const ConnectAndSave: React.FC = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
+  const [playlistSaved, setPlaylistSaved] = useState<boolean>(false);
 
   const handleStartClick = () => {
     setIsOverlayOpen(true);
@@ -32,23 +33,41 @@ const ConnectAndSave: React.FC = () => {
 
   return (
     <div>
-      <button className="SaveButton buttonFont" onClick={handleStartClick}>
-        <div className="buttonIconWrapper">
-          <img src={addIcon} alt="small plus icon inside of a circle" />
+      {playlistSaved ? (
+        <div>
+          <button className="SaveButton buttonFont disable">
+            <div className="buttonIconWrapper">
+              <img src={addIcon} alt="small plus icon inside of a circle" />
+            </div>
+            Successfully saved
+          </button>
         </div>
-        Save to Your Library
-      </button>
-      {isOverlayOpen && <ConnectAndSaveOverlay onClose={handleCloseOverlay} />}
+      ) : (
+        <button className="SaveButton buttonFont" onClick={handleStartClick}>
+          <div className="buttonIconWrapper">
+            <img src={addIcon} alt="small plus icon inside of a circle" />
+          </div>
+          Save to Your Library
+        </button>
+      )}
+      {isOverlayOpen && (
+        <ConnectAndSaveOverlay
+          onClose={handleCloseOverlay}
+          setPlaylistSaved={setPlaylistSaved} // Pass function directly
+        />
+      )}
     </div>
   );
 };
 
 interface ConnectAndSaveOverlayProps {
   onClose: () => void;
+  setPlaylistSaved: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
   onClose,
+  setPlaylistSaved,
 }) => {
   const { accessToken } = useContext(AuthContext);
   const [userId, setUserId] = useState<string>("");
@@ -138,6 +157,7 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
         );
         console.log("Tracks added successfully!");
         onClose();
+        setPlaylistSaved(true);
       } catch (error) {
         console.log("Error adding tracks to playlist:", error);
       }
