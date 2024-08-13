@@ -65,6 +65,10 @@ interface ConnectAndSaveOverlayProps {
   setPlaylistSaved: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface Track {
+  uri: string;
+}
+
 const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
   onClose,
   setPlaylistSaved,
@@ -76,8 +80,13 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
   const PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/users/${userId}/playlists`;
   const TRACK_ENDPOINT = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
   const USER_ENDPOINT = `https://api.spotify.com/v1/me`;
-  const { choosenArtistName, choosenMood, playlistData } =
-    useContext(CollectContext);
+  const { choosenArtistName, choosenMood, playlistData } = useContext(
+    CollectContext
+  ) as {
+    choosenArtistName: string;
+    choosenMood: string;
+    playlistData: Track[];
+  };
 
   const handleLogin = () => {
     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAMS}&response_type=token&show_dialog=true`;
