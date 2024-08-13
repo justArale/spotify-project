@@ -9,8 +9,7 @@ import { AuthContext } from "../context/auth.context"; // Importiere den AuthCon
 const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID as string;
 const SPOTIFY_AUTHORIZE_ENDPOINT: string =
   "https://accounts.spotify.com/authorize?";
-const REDIRECT_URL_AFTER_LOGIN: string = import.meta.env
-  .REDIRECT_URL_AFTER_LOGIN as string;
+const REDIRECT_URL_AFTER_LOGIN: string = "http://localhost:5173/result";
 const SPACE: string = "%20";
 const SCOPES: string[] = [
   "user-read-private",
@@ -96,7 +95,14 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
         setUserId(response.data.id);
       })
       .catch((err) => {
-        console.log("Error getting user info:", err);
+        if (err.response.status === 401) {
+          // Unauthorized error, likely due to expired token
+          alert("Session expired. Please log in again.");
+          localStorage.removeItem("accessToken");
+          window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAMS}&response_type=token&show_dialog=true`;
+        } else {
+          console.log("Error getting user info:", err);
+        }
       });
   };
 

@@ -16,7 +16,7 @@ interface AuthWrapperProps {
 
 const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
   const [accessToken, setAccessToken] = useState<string | null>(() => {
-    // Überprüfe den localStorage beim Initialisieren des Zustands
+    // Check the localStorage
     return localStorage.getItem("accessToken");
   });
 
@@ -35,11 +35,13 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
         window.location.hash = "";
 
         // Handle token expiration
-        setTimeout(() => {
+        const tokenTimeout = setTimeout(() => {
           setAccessToken(null);
           localStorage.removeItem("accessToken");
           alert("Session expired. Please log in again.");
         }, Number(expiresIn) * 1000);
+
+        return () => clearTimeout(tokenTimeout); // Cleanup on unmount
       }
     }
   }, []);
