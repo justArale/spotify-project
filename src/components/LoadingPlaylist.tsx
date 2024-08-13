@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import loadingIcon from "../assets/icons/loading.svg";
@@ -18,7 +18,8 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
   onClose,
 }) => {
   const tokenFromLocalStorage = localStorage.getItem("accessTokenLocal");
-  const { playlistData, setPlaylistData } = useContext(CollectContext);
+  const { setPlaylistData } = useContext(CollectContext);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
   const loadPlaylist = async () => {
@@ -32,10 +33,11 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
         }
       );
       setPlaylistData(response.data.tracks);
+      setIsLoading(false);
       console.log(response.data.tracks);
       navigate("/result");
-      // Close the overlay, if the current URL path is '/result' insteat of reload
       onClose();
+      // Close the overlay, if the current URL path is '/result' insteat of reload
 
       //   // Check if the current URL path is '/result'
       //   if (window.location.pathname === "/result") {
@@ -58,7 +60,7 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
   // Once the playlist is loaded, you can render the data or redirect to another component.
   return (
     <div>
-      {!playlistData ? (
+      {isLoading ? (
         <div className="contentFieldWrapper">
           <h1 className="title">Done</h1>
 
