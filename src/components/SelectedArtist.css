@@ -12,10 +12,10 @@
 
 .blurryBackground {
   position: absolute;
-  top: -10px;
-  left: -10px;
-  width: calc(100% + 20px);
-  height: calc(100% + 20px);
+  top: -20px;
+  /* left: -10px; */
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
   background-size: cover;
   background-position: center;
   filter: blur(10px);

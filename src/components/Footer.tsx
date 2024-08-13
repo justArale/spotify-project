@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           >
             Spotify Project
           </a>{" "}
-          made with ❤️ {"   "}by{"  "}
+          made with 💜 {"   "}by{"  "}
           <a
             href="https://github.com/justArale"
             target="_blank"

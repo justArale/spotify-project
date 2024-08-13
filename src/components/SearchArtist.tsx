@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./SearchArtist.css";
 import arrowIcon from "../assets/icons/arrow.svg";
 import searchIcon from "../assets/icons/search.svg";
+import { CollectContext } from "../context/collectData.context";
 
 interface ArtistProps {
   getArtistId: (id: string) => void;
@@ -23,9 +24,10 @@ interface SearchResult {
 const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
   const [artistNameInput, setArtistNameInput] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Artist[]>([]);
-  const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
   const minSearchLength = 2; // Minimum search length for the artist name
   const tokenFromLocalStorage = localStorage.getItem("accessTokenLocal");
+  const { setChoosenArtistName } = useContext(CollectContext);
+  const { setChoosenArtistImage } = useContext(CollectContext);
 
   const searchArtist = async () => {
     if (!tokenFromLocalStorage) {
@@ -71,10 +73,9 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
           },
         }
       );
-      setSelectedArtist(response.data);
       getArtistId(response.data.id);
-      localStorage.setItem("artistImage", response.data.images[0]?.url || "");
-      localStorage.setItem("artist", response.data.name);
+      setChoosenArtistImage(response.data.images[0]?.url || "");
+      setChoosenArtistName(response.data.name);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log("Error searching for artist image:", error.response?.data);

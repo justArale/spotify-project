@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import arrowIcon from "../assets/icons/arrow.svg";
+import { CollectContext } from "../context/collectData.context";
 
 // const API_TRACK = `https://api.spotify.com/v1/audio-features/${trackId}/danceability`;
 
@@ -8,8 +9,10 @@ interface MoodProps {
 }
 
 const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
+  const { setChoosenMood } = useContext(CollectContext);
+
   const moodSelector = (id: string, min: number, max: number) => {
-    localStorage.setItem("mood", id);
+    setChoosenMood(id);
     return getDanceability(min, max);
   };
 
@@ -19,7 +22,7 @@ const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
       <ul className="contentList">
         <li
           className="contentField contentListItem"
-          onClick={() => moodSelector("sleepy", 0.0, 0.2)}
+          onClick={() => moodSelector("Sleepy", 0.0, 0.2)}
         >
           <p id="sleepy" className="inputFont contentText">
             💤 <span>Sleepy</span>
@@ -31,7 +34,7 @@ const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
         </li>
         <li
           className="contentField contentListItem"
-          onClick={() => moodSelector("calm", 0.201, 0.4)}
+          onClick={() => moodSelector("Calm", 0.201, 0.4)}
         >
           <p id="calm" className="inputFont contentText">
             🛁 <span>Calm</span>
@@ -43,7 +46,7 @@ const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
         </li>
         <li
           className="contentField contentListItem"
-          onClick={() => moodSelector("studying", 0.401, 0.6)}
+          onClick={() => moodSelector("Studying", 0.401, 0.6)}
         >
           <p id="studying" className="inputFont contentText">
             📚 <span>Studying</span>
@@ -55,7 +58,7 @@ const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
         </li>
         <li
           className="contentField contentListItem"
-          onClick={() => moodSelector("cooking", 0.601, 0.8)}
+          onClick={() => moodSelector("Cooking", 0.601, 0.8)}
         >
           <p id="cooking" className="inputFont contentText">
             🍳 <span>Cooking</span>
@@ -67,7 +70,7 @@ const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
         </li>
         <li
           className="contentField contentListItem"
-          onClick={() => moodSelector("dancing", 0.801, 1)}
+          onClick={() => moodSelector("Dancing", 0.801, 1)}
         >
           <p id="dancing" className="inputFont contentText">
             🕺 <span>Dancing</span>

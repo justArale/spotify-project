@@ -1,0 +1,81 @@
+.trackWrapper {
+  list-style: none;
+  max-width: 800px;
+  width: 100%;
+  padding: 0 16px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.track {
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background-color: var(--box-background);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.noTrack {
+  cursor: not-allowed;
+  background-color: var(--box-background);
+  opacity: 0.5;
+}
+
+.trackNumberWrapper {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trackNumber {
+  font-size: var(--font-size-xsmall);
+  font-weight: var(--font-weight-bold);
+  color: #8060c0;
+  margin: 0;
+}
+
+.trackName {
+  font-size: 18px;
+  font-weight: var(--font-weight-semiBold);
+  margin: 0;
+}
+
+.trackArtistName {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: #6030c0;
+  margin: 0;
+}
+
+.trackNumberWrapper .progress-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid #e2daf2;
+  border-top-color: #9f8fbf;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.trackNumberWrapper .progress-circle.paused {
+  animation-play-state: paused;
+}

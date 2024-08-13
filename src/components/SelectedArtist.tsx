@@ -1,36 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SelectedArtist.css";
 import CreateButton from "./CreateButton";
+import ConnectAndSave from "./ConnectAndSave";
+import { CollectContext } from "../context/collectData.context";
 
 const SelectedArtist: React.FC = () => {
-  const getArtistInput = localStorage.getItem("artist");
-  const getMoodInput = localStorage.getItem("mood");
-  const getArtistImage = localStorage.getItem("artistImage");
+  const { choosenArtistName } = useContext(CollectContext);
+  const { choosenArtistImage } = useContext(CollectContext);
+  const { choosenMood } = useContext(CollectContext);
 
   return (
     <div className="resultHeader">
       <div
         className="blurryBackground"
         style={{
-          backgroundImage: `url(${getArtistImage})`,
+          backgroundImage: `url(${choosenArtistImage})`,
         }}
       ></div>
       <div className="resultHeaderContentWrapper">
         <div className="resultPlaylistContent">
           <div className="resultPlaylistArtistImageWrapper">
-            {getArtistImage && (
-              <img src={getArtistImage} alt="Artist" className="artistImage" />
+            {choosenArtistImage && (
+              <img
+                src={choosenArtistImage}
+                alt="Artist"
+                className="artistImage"
+              />
             )}
           </div>
           <div className="resultPlaylistText">
             <h3 className="headline whiteFont">Your New Playlist</h3>
             <h2 className="resultTitle whiteFont">
-              {getMoodInput} with {getArtistInput}
+              {choosenMood} with {choosenArtistName}
             </h2>
           </div>
         </div>
         <div className="actionButtons">
-          <button>Save to your spotify</button>
+          <ConnectAndSave />
           <CreateButton />
         </div>
       </div>
