@@ -17,17 +17,29 @@ interface CollectContextType {
 
 const defaultContextValue: CollectContextType = {
   artistID: "",
-  setArtistID: () => {},
+  setArtistID: () => {
+    throw new Error("setArtistID function not initialized");
+  },
   danceMin: null,
-  setDanceMin: () => {},
+  setDanceMin: () => {
+    throw new Error("setDanceMin function not initialized");
+  },
   danceMax: null,
-  setDanceMax: () => {},
+  setDanceMax: () => {
+    throw new Error("setDanceMax function not initialized");
+  },
   choosenArtistName: "",
-  setChoosenArtistName: () => {},
+  setChoosenArtistName: () => {
+    throw new Error("setChoosenArtistName function not initialized");
+  },
   choosenMood: "",
-  setChoosenMood: () => {},
+  setChoosenMood: () => {
+    throw new Error("setChoosenMood function not initialized");
+  },
   choosenArtistImage: "",
-  setChoosenArtistImage: () => {},
+  setChoosenArtistImage: () => {
+    throw new Error("setChoosenArtistImage function not initialized");
+  },
 };
 
 // Kontext erstellen
