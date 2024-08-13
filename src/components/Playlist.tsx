@@ -37,7 +37,7 @@ const Playlist: React.FC = () => {
         {playlistData.map((track: any, index: number) => (
           <li
             key={track.id}
-            className="track"
+            className={`track ${!track.preview_url && `noTrack`}`}
             onClick={() => playAudio(track.preview_url)}
           >
             <div className="trackNumberWrapper">
@@ -48,19 +48,22 @@ const Playlist: React.FC = () => {
               <p className="trackArtistName">{track.artists[0].name}</p>
             </div>
             <div className="trackNumberWrapper">
-              <img
-                src={
-                  currentTrackUrl === track.preview_url && !currentAudio?.paused
-                    ? pauseIcon
-                    : playIcon
-                }
-                alt={currentTrackUrl === track.preview_url ? "Pause" : "Play"}
-                // className={`progress-circle ${
-                //   currentTrackUrl === track.preview_url && !currentAudio?.paused
-                //     ? ""
-                //     : "paused"
-                // }`}
-              />
+              {track.preview_url && (
+                <img
+                  src={
+                    currentTrackUrl === track.preview_url &&
+                    !currentAudio?.paused
+                      ? pauseIcon
+                      : playIcon
+                  }
+                  alt={currentTrackUrl === track.preview_url ? "Pause" : "Play"}
+                  // className={`progress-circle ${
+                  //   currentTrackUrl === track.preview_url && !currentAudio?.paused
+                  //     ? ""
+                  //     : "paused"
+                  // }`}
+                />
+              )}
             </div>
           </li>
         ))}

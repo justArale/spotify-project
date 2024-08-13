@@ -21,6 +21,12 @@
   cursor: pointer;
 }
 
+.noTrack {
+  cursor: not-allowed;
+  background-color: var(--box-background);
+  opacity: 0.5;
+}
+
 .trackNumberWrapper {
   width: 32px;
   height: 32px;
