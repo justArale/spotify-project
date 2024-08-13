@@ -1,5 +1,6 @@
 import "./CreateButton.css";
 import React, { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import newIcon from "../assets/icons/new.svg";
 import SearchArtist from "./SearchArtist";
 import SelectMood from "./SelectMood";
@@ -12,6 +13,9 @@ const CreateButton: React.FC = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
   const [accessToken, setAccessToken] = useState<string>("");
   const { setArtistID, setDanceMin, setDanceMax } = useContext(CollectContext);
+
+  const location = useLocation();
+  const isResultPage = location.pathname === "/result";
 
   useEffect(() => {
     const getAccessToken = async () => {
@@ -59,7 +63,9 @@ const CreateButton: React.FC = () => {
   return (
     <div>
       <button
-        className="startButton buttonFont whiteFont"
+        className={`startButton buttonFont whiteFont ${
+          isResultPage ? "resultPageStyle" : ""
+        }`}
         onClick={handleStartClick}
       >
         <div className="buttonIconWrapper">
