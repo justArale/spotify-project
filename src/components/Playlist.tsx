@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { CollectContext } from "../context/collectData.context";
+import "./Playlist.css";
 
 const Playlist: React.FC = () => {
   const { playlistData } = useContext(CollectContext);
@@ -18,13 +19,18 @@ const Playlist: React.FC = () => {
 
   return (
     <div>
-      <ul>
-        {playlistData.map((track: any) => (
-          <li key={track.id}>
-            {track.name} - {track.artists[0].name}
-            <button onClick={() => playAudio(track.preview_url)}>
-              Play Preview
-            </button>
+      <ul className="trackWrapper">
+        {playlistData.map((track: any, index: number) => (
+          <li
+            key={track.id}
+            className="track"
+            onClick={() => playAudio(track.preview_url)}
+          >
+            <p className="trackNumber">{index + 1}.</p>
+            <div>
+              <p className="trackName"> {track.name} </p>
+              <p className="trackArtistName">{track.artists[0].name}</p>
+            </div>
           </li>
         ))}
       </ul>
