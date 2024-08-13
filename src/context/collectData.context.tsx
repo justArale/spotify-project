@@ -1,4 +1,4 @@
-import React, { useState, createContext, ReactNode } from "react";
+import React, { useState, createContext, ReactNode, useEffect } from "react";
 
 interface CollectContextType {
   artistID: string;
@@ -13,8 +13,8 @@ interface CollectContextType {
   setChoosenMood: React.Dispatch<React.SetStateAction<string>>;
   choosenArtistImage: string;
   setChoosenArtistImage: React.Dispatch<React.SetStateAction<string>>;
-  playlistData: [];
-  setPlaylistData: React.Dispatch<React.SetStateAction<any>>;
+  playlistData: any[];
+  setPlaylistData: React.Dispatch<React.SetStateAction<any[]>>;
 }
 
 const defaultContextValue: CollectContextType = {
@@ -57,13 +57,67 @@ interface CollectWrapperProps {
 }
 
 const CollectWrapper: React.FC<CollectWrapperProps> = (props) => {
-  const [artistID, setArtistID] = useState<string>("");
-  const [danceMin, setDanceMin] = useState<number | null>(null);
-  const [danceMax, setDanceMax] = useState<number | null>(null);
-  const [choosenArtistName, setChoosenArtistName] = useState<string>("");
-  const [choosenMood, setChoosenMood] = useState<string>("");
-  const [choosenArtistImage, setChoosenArtistImage] = useState<string>("");
-  const [playlistData, setPlaylistData] = useState<[]>([]);
+  const [artistID, setArtistID] = useState<string>(
+    () => localStorage.getItem("artistID") || ""
+  );
+  const [danceMin, setDanceMin] = useState<number | null>(() => {
+    const value = localStorage.getItem("danceMin");
+    return value ? JSON.parse(value) : null;
+  });
+  const [danceMax, setDanceMax] = useState<number | null>(() => {
+    const value = localStorage.getItem("danceMax");
+    return value ? JSON.parse(value) : null;
+  });
+  const [choosenArtistName, setChoosenArtistName] = useState<string>(
+    () => localStorage.getItem("choosenArtistName") || ""
+  );
+  const [choosenMood, setChoosenMood] = useState<string>(
+    () => localStorage.getItem("choosenMood") || ""
+  );
+  const [choosenArtistImage, setChoosenArtistImage] = useState<string>(
+    () => localStorage.getItem("choosenArtistImage") || ""
+  );
+  const [playlistData, setPlaylistData] = useState<any[]>(() => {
+    const value = localStorage.getItem("playlistData");
+    return value ? JSON.parse(value) : [];
+  });
+
+  // Save to localStorage whenever a state changes
+  useEffect(() => {
+    localStorage.setItem("artistID", artistID);
+  }, [artistID]);
+
+  useEffect(() => {
+    if (danceMin !== null) {
+      localStorage.setItem("danceMin", JSON.stringify(danceMin));
+    } else {
+      localStorage.removeItem("danceMin");
+    }
+  }, [danceMin]);
+
+  useEffect(() => {
+    if (danceMax !== null) {
+      localStorage.setItem("danceMax", JSON.stringify(danceMax));
+    } else {
+      localStorage.removeItem("danceMax");
+    }
+  }, [danceMax]);
+
+  useEffect(() => {
+    localStorage.setItem("choosenArtistName", choosenArtistName);
+  }, [choosenArtistName]);
+
+  useEffect(() => {
+    localStorage.setItem("choosenMood", choosenMood);
+  }, [choosenMood]);
+
+  useEffect(() => {
+    localStorage.setItem("choosenArtistImage", choosenArtistImage);
+  }, [choosenArtistImage]);
+
+  useEffect(() => {
+    localStorage.setItem("playlistData", JSON.stringify(playlistData));
+  }, [playlistData]);
 
   return (
     <CollectContext.Provider
