@@ -1,6 +1,7 @@
 import React from "react";
 import "./SelectedArtist.css";
 import CreateButton from "./CreateButton";
+import ConnectAndSave from "./ConnectAndSave";
 
 const SelectedArtist: React.FC = () => {
   const getArtistInput = localStorage.getItem("artist");
@@ -30,7 +31,7 @@ const SelectedArtist: React.FC = () => {
           </div>
         </div>
         <div className="actionButtons">
-          <button>Save to your spotify</button>
+          <ConnectAndSave />
           <CreateButton />
         </div>
       </div>
