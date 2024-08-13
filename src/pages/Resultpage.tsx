@@ -20,7 +20,6 @@ const Resultpage: React.FC = ({}) => {
   return (
     <div className="landingPageWrapper">
       <SelectedArtist />
-      <h5>Your playlist will be displayed here ✌️</h5>
       <ul>
         {playlistData.map((track: any) => (
           <li key={track.id}>
