@@ -9,7 +9,12 @@ import { AuthContext } from "../context/auth.context"; // Importiere den AuthCon
 const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID as string;
 const SPOTIFY_AUTHORIZE_ENDPOINT: string =
   "https://accounts.spotify.com/authorize?";
-const REDIRECT_URL_AFTER_LOGIN: string = "http://localhost:5173/result";
+// const REDIRECT_URL_AFTER_LOGIN: string = "http://localhost:5173/result";
+
+// Uncomment if publish is ready
+const REDIRECT_URL_AFTER_LOGIN: string =
+  "https://arale-spotify-project2.netlify.app/result";
+
 const SPACE: string = "%20";
 const SCOPES: string[] = [
   "user-read-private",
