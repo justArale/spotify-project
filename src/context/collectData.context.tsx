@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, ReactNode } from "react";
+import React, { useState, createContext, ReactNode } from "react";
 
 interface CollectContextType {
   artistID: string;
@@ -13,6 +13,8 @@ interface CollectContextType {
   setChoosenMood: React.Dispatch<React.SetStateAction<string>>;
   choosenArtistImage: string;
   setChoosenArtistImage: React.Dispatch<React.SetStateAction<string>>;
+  playlistData: [];
+  setPlaylistData: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const defaultContextValue: CollectContextType = {
@@ -40,12 +42,16 @@ const defaultContextValue: CollectContextType = {
   setChoosenArtistImage: () => {
     throw new Error("setChoosenArtistImage function not initialized");
   },
+  playlistData: [],
+  setPlaylistData: () => {
+    throw new Error("setPlaylistData function not initialized");
+  },
 };
 
-// Kontext erstellen
+// Create context
 const CollectContext = createContext<CollectContextType>(defaultContextValue);
 
-// Types ffor the wrapper component
+// Types for the wrapper component
 interface CollectWrapperProps {
   children: ReactNode;
 }
@@ -57,6 +63,7 @@ const CollectWrapper: React.FC<CollectWrapperProps> = (props) => {
   const [choosenArtistName, setChoosenArtistName] = useState<string>("");
   const [choosenMood, setChoosenMood] = useState<string>("");
   const [choosenArtistImage, setChoosenArtistImage] = useState<string>("");
+  const [playlistData, setPlaylistData] = useState<[]>([]);
 
   return (
     <CollectContext.Provider
@@ -73,6 +80,8 @@ const CollectWrapper: React.FC<CollectWrapperProps> = (props) => {
         setChoosenMood,
         choosenArtistImage,
         setChoosenArtistImage,
+        playlistData,
+        setPlaylistData,
       }}
     >
       {props.children}
