@@ -1,0 +1,28 @@
+.SaveButton {
+  width: auto;
+  height: auto;
+  background-color: var(--color-white);
+  border-radius: 90px;
+  border: 1px solid #fff;
+  padding: 8px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.ConnectAndSaveButton {
+  border: 1px solid #1ed760;
+  background-color: var(--color-green);
+}
+
+.buttonIconWrapper {
+  width: 24px;
+  height: 24px;
+}
+
+.connectDescription {
+  text-align: center;
+}

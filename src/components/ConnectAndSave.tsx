@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Overlay.css";
-import connectIcon from "../assets/icons/connect.svg";
+import "./ConnectAndSave.css";
+import connectIcon from "../assets/icons/connect.png";
 import addIcon from "../assets/icons/add.svg";
 
 const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID as string;
@@ -46,14 +46,11 @@ const ConnectAndSave: React.FC = () => {
 
   return (
     <div>
-      <button
-        className="startButton buttonFont whiteFont"
-        onClick={handleStartClick}
-      >
-        <div>
+      <button className="SaveButton buttonFont" onClick={handleStartClick}>
+        <div className="buttonIconWrapper">
           <img src={addIcon} alt="small plus icon inside of a circle" />
         </div>
-        Create new
+        Save to Your Library
       </button>
       {isOverlayOpen && <ConnectAndSaveOverlay onClose={handleCloseOverlay} />}
     </div>
@@ -181,17 +178,20 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
   return (
     <div className="overlay">
       <div className="overlay_background" onClick={onClose} />
-      <div className="overlay-container">
+      <div className="overlay-content">
         <div className="contentFieldWrapper">
           <h3 className="title">Save Playlist</h3>
           <div>
             <img src={connectIcon} alt="Connect Icon" />
           </div>
-          <p className="inputFont contentText">
+          <p className="inputFont connectDescription">
             Connect our App with your Spotify account to save your new playlist.
           </p>
-          <button className="overlay-button" onClick={handleConnectAndSave}>
-            Connect and save playlist
+          <button
+            className="SaveButton ConnectAndSaveButton buttonFont"
+            onClick={handleConnectAndSave}
+          >
+            Connect & save playlist
           </button>
         </div>
       </div>
