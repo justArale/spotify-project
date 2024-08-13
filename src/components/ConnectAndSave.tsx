@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./ConnectAndSave.css";
 import connectIcon from "../assets/icons/connect.png";
 import addIcon from "../assets/icons/add.svg";
+import { CollectContext } from "../context/collectData.context";
 
 const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID as string;
 const SPOTIFY_AUTHORIZE_ENDPOINT: string =
@@ -73,8 +74,7 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
   const PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/users/${userId}/playlists`;
   const TRACK_ENDPOINT = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
   const USER_ENDPOINT = `https://api.spotify.com/v1/me`;
-  const getArtistInput = localStorage.getItem("artist");
-  const getMoodInput = localStorage.getItem("mood");
+  const { choosenArtistName, choosenMood } = useContext(CollectContext);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -120,8 +120,8 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
       const response = await axios.post(
         PLAYLIST_ENDPOINT,
         {
-          name: `${getArtistInput} ${getMoodInput} Playlist`,
-          description: "Created from my app",
+          name: `${choosenMood} ${choosenArtistName} Playlist`,
+          description: "Created with spotify-project app",
           public: true,
         },
         {
