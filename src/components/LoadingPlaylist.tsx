@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import loadingIcon from "../assets/icons/loading.svg";
+import { CollectContext } from "../context/collectData.context";
 
 interface GenerateProps {
   artistID: string;
@@ -15,7 +16,7 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
   danceMax,
 }) => {
   const tokenFromLocalStorage = localStorage.getItem("accessTokenLocal");
-  const [playlistData, setPlaylistData] = useState<any>(null);
+  const { playlistData, setPlaylistData } = useContext(CollectContext);
   const navigate = useNavigate();
 
   const loadPlaylist = async () => {
@@ -30,6 +31,7 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
       );
       setPlaylistData(response.data.tracks);
       console.log(response.data.tracks);
+      navigate("/result");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log("Error searching for artists:", error.response?.data);
@@ -42,14 +44,6 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
   useEffect(() => {
     loadPlaylist();
   }, []);
-
-  useEffect(() => {
-    if (playlistData) {
-      // Save the playlistData
-      localStorage.setItem("playlistData", JSON.stringify(playlistData));
-      navigate("/result");
-    }
-  }, [playlistData]);
 
   // Once the playlist is loaded, you can render the data or redirect to another component.
   return (
