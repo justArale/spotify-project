@@ -11,6 +11,8 @@ interface CollectContextType {
   setChoosenArtist: React.Dispatch<React.SetStateAction<string>>;
   choosenMood: string;
   setChoosenMood: React.Dispatch<React.SetStateAction<string>>;
+  choosenArtistImage: string;
+  setChoosenArtistImage: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const defaultContextValue: CollectContextType = {
@@ -24,6 +26,8 @@ const defaultContextValue: CollectContextType = {
   setChoosenArtist: () => {},
   choosenMood: "",
   setChoosenMood: () => {},
+  choosenArtistImage: "",
+  setChoosenArtistImage: () => {},
 };
 
 // Kontext erstellen
@@ -40,6 +44,7 @@ const CollectWrapper: React.FC<CollectWrapperProps> = (props) => {
   const [danceMax, setDanceMax] = useState<number | null>(null);
   const [choosenArtist, setChoosenArtist] = useState<string>("");
   const [choosenMood, setChoosenMood] = useState<string>("");
+  const [choosenArtistImage, setChoosenArtistImage] = useState<string>("");
 
   return (
     <CollectContext.Provider
@@ -54,6 +59,8 @@ const CollectWrapper: React.FC<CollectWrapperProps> = (props) => {
         setChoosenArtist,
         choosenMood,
         setChoosenMood,
+        choosenArtistImage,
+        setChoosenArtistImage,
       }}
     >
       {props.children}
