@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SelectedArtist from "../components/SelectedArtist";
+import { CollectContext } from "../context/collectData.context";
 
-interface ResultProps {
-  playlistData: any;
-}
-
-const Resultpage: React.FC<ResultProps> = ({ playlistData }) => {
-  const getPlaylistData = localStorage.getItem("playlistData");
+const Resultpage: React.FC = ({}) => {
+  const { playlistData } = useContext(CollectContext);
   const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(
     null
   );
@@ -24,7 +21,7 @@ const Resultpage: React.FC<ResultProps> = ({ playlistData }) => {
     <div className="landingPageWrapper">
       <SelectedArtist />
       <h5>Your playlist will be displayed here ✌️</h5>
-      {/* <ul>
+      <ul>
         {playlistData.map((track: any) => (
           <li key={track.id}>
             {track.name} - {track.artists[0].name}
@@ -33,7 +30,7 @@ const Resultpage: React.FC<ResultProps> = ({ playlistData }) => {
             </button>
           </li>
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 };
