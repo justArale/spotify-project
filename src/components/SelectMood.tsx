@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import arrowIcon from "../assets/icons/arrow.svg";
+import { CollectContext } from "../context/collectData.context";
 
 // const API_TRACK = `https://api.spotify.com/v1/audio-features/${trackId}/danceability`;
 
@@ -8,8 +9,10 @@ interface MoodProps {
 }
 
 const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
+  const { setChoosenMood } = useContext(CollectContext);
+
   const moodSelector = (id: string, min: number, max: number) => {
-    localStorage.setItem("mood", id);
+    setChoosenMood(id);
     return getDanceability(min, max);
   };
 
