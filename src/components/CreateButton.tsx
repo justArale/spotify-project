@@ -56,7 +56,7 @@ const CreateButton: React.FC = () => {
         className="startButton buttonFont whiteFont"
         onClick={handleStartClick}
       >
-        <div>
+        <div className="buttonIconWrapper">
           <img src={newIcon} alt="small plus icon" />
         </div>
         Create new
