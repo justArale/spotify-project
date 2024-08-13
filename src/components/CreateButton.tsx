@@ -1,15 +1,17 @@
 import "./CreateButton.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import newIcon from "../assets/icons/new.svg";
 import SearchArtist from "./SearchArtist";
 import SelectMood from "./SelectMood";
 import LoadingPlaylist from "./LoadingPlaylist";
 import "./Overlay.css";
 import axios from "axios";
+import { CollectContext } from "../context/collectData.context";
 
 const CreateButton: React.FC = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
   const [accessToken, setAccessToken] = useState<string>("");
+  const { setArtistID, setDanceMin, setDanceMax } = useContext(CollectContext);
 
   useEffect(() => {
     const getAccessToken = async () => {
@@ -43,6 +45,10 @@ const CreateButton: React.FC = () => {
   }, [accessToken]);
 
   const handleStartClick = () => {
+    // Reset the values in the context
+    setArtistID("");
+    setDanceMin(null);
+    setDanceMax(null);
     setIsOverlayOpen(true);
   };
 
@@ -71,17 +77,25 @@ interface GeneratePlaylistProps {
 }
 
 const GeneratePlaylist: React.FC<GeneratePlaylistProps> = ({ onClose }) => {
-  const [artistID, setArtistID] = useState<string>("");
-  const [danceMin, setDanceMin] = useState<number | null>(null);
-  const [danceMax, setDanceMax] = useState<number | null>(null);
+  const {
+    artistID,
+    setArtistID,
+    danceMin,
+    setDanceMin,
+    danceMax,
+    setDanceMax,
+  } = useContext(CollectContext);
 
   const getDanceability = (min: number, max: number) => {
     setDanceMin(min);
     setDanceMax(max);
+    console.log("min", min);
+    console.log("max", max);
   };
 
   const getArtistId = (chosenArtistId: string) => {
     setArtistID(chosenArtistId);
+    console.log("artist", chosenArtistId);
   };
 
   return (
