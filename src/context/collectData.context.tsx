@@ -7,8 +7,8 @@ interface CollectContextType {
   setDanceMin: React.Dispatch<React.SetStateAction<number | null>>;
   danceMax: number | null;
   setDanceMax: React.Dispatch<React.SetStateAction<number | null>>;
-  choosenArtist: string;
-  setChoosenArtist: React.Dispatch<React.SetStateAction<string>>;
+  choosenArtistName: string;
+  setChoosenArtistName: React.Dispatch<React.SetStateAction<string>>;
   choosenMood: string;
   setChoosenMood: React.Dispatch<React.SetStateAction<string>>;
   choosenArtistImage: string;
@@ -22,8 +22,8 @@ const defaultContextValue: CollectContextType = {
   setDanceMin: () => {},
   danceMax: null,
   setDanceMax: () => {},
-  choosenArtist: "",
-  setChoosenArtist: () => {},
+  choosenArtistName: "",
+  setChoosenArtistName: () => {},
   choosenMood: "",
   setChoosenMood: () => {},
   choosenArtistImage: "",
@@ -42,7 +42,7 @@ const CollectWrapper: React.FC<CollectWrapperProps> = (props) => {
   const [artistID, setArtistID] = useState<string>("");
   const [danceMin, setDanceMin] = useState<number | null>(null);
   const [danceMax, setDanceMax] = useState<number | null>(null);
-  const [choosenArtist, setChoosenArtist] = useState<string>("");
+  const [choosenArtistName, setChoosenArtistName] = useState<string>("");
   const [choosenMood, setChoosenMood] = useState<string>("");
   const [choosenArtistImage, setChoosenArtistImage] = useState<string>("");
 
@@ -55,8 +55,8 @@ const CollectWrapper: React.FC<CollectWrapperProps> = (props) => {
         setDanceMin,
         danceMax,
         setDanceMax,
-        choosenArtist,
-        setChoosenArtist,
+        choosenArtistName,
+        setChoosenArtistName,
         choosenMood,
         setChoosenMood,
         choosenArtistImage,
