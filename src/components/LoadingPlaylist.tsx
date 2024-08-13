@@ -40,10 +40,10 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
       // Close the overlay, if the current URL path is '/result' insteat of reload
 
       //   // Check if the current URL path is '/result'
-      //   if (window.location.pathname === "/result") {
-      //     // Reload the page if on the '/result' page
-      //     window.location.reload();
-      //   }
+      if (window.location.pathname === "/result") {
+        // Reload the page if on the '/result' page
+        window.location.reload();
+      }
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log("Error searching for artists:", error.response?.data);
