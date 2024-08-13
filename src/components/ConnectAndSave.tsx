@@ -177,7 +177,7 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
 
   return (
     <div className="overlay">
-      <div className="overlay_background" onClick={onClose} />
+      <div className="overlay-background" onClick={onClose}></div>
       <div className="overlay-content">
         <div className="contentFieldWrapper">
           <h3 className="title">Save Playlist</h3>
