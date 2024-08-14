@@ -133,7 +133,7 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
         PLAYLIST_ENDPOINT,
         {
           name: `${choosenMood} with ${choosenArtistName} Playlist`,
-          description: "Created with spotify-project app",
+          description: "Created with Arales Spotify-Project App",
           public: true,
         },
         {
