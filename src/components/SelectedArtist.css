@@ -49,6 +49,7 @@
   display: flex;
   align-items: center;
   gap: 32px;
+  width: 100%;
 }
 
 .resultPlaylistArtistImageWrapper {
@@ -65,4 +66,17 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+@media (max-width: 660px) {
+  .resultHeaderContentWrapper {
+    max-width: 400px;
+  }
+  .resultPlaylistContent {
+    flex-direction: column;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
 }
