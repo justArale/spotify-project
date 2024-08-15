@@ -48,3 +48,9 @@
   object-fit: contain; /* Ensure the image fits without being cropped */
   object-position: center; /* Center the image */
 }
+
+@media (max-width: 890px) {
+  .searchBar {
+    width: 100%;
+  }
+}
