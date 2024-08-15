@@ -89,3 +89,9 @@
     -webkit-transform: rotate(359deg);
   }
 }
+
+@media (max-width: 890px) {
+  .overlay-content {
+    width: calc(100% - 30px);
+  }
+}
