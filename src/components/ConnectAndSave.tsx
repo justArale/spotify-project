@@ -113,7 +113,7 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
           // Unauthorized error, likely due to expired token
           alert("Session expired. Please log in again.");
           localStorage.removeItem("accessToken");
-          window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAMS}&response_type=token&show_dialog=true`;
+          handleLogin();
         } else {
           console.log("Error getting user info:", err);
         }
