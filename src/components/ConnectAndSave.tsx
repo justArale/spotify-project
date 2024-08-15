@@ -40,7 +40,7 @@ const ConnectAndSave: React.FC = () => {
     <div>
       {playlistSaved ? (
         <div>
-          <button className="SaveButton buttonFont disable">
+          <button className="SaveButton buttonFont disable blackFont">
             <div className="buttonIconWrapper">
               <img src={addIcon} alt="small plus icon inside of a circle" />
             </div>
@@ -48,7 +48,10 @@ const ConnectAndSave: React.FC = () => {
           </button>
         </div>
       ) : (
-        <button className="SaveButton buttonFont" onClick={handleStartClick}>
+        <button
+          className="SaveButton buttonFont blackFont"
+          onClick={handleStartClick}
+        >
           <div className="buttonIconWrapper">
             <img src={addIcon} alt="small plus icon inside of a circle" />
           </div>
@@ -207,7 +210,7 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
             Connect our App with your Spotify account to save your new playlist.
           </p>
           <button
-            className="SaveButton ConnectAndSaveButton buttonFont"
+            className="SaveButton ConnectAndSaveButton buttonFont blackFont"
             onClick={handleConnectAndSave}
           >
             Connect & save playlist

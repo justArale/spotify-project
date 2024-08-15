@@ -23,3 +23,9 @@
 .headerContent .pageTitle {
   margin-bottom: 32px;
 }
+
+@media (max-width: 725px) {
+  .headerContentWrapper {
+    width: calc(100% - 40px);
+  }
+}
