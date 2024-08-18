@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./ConnectAndSave.css";
-import connectIcon from "../assets/icons/connect.png";
 import addIcon from "../assets/icons/add.svg";
+import appIcon from "../assets/icons/app.svg";
+import spotifyIcon from "../assets/icons/spotify.svg";
 import { CollectContext } from "../context/collectData.context";
-import { AuthContext } from "../context/auth.context"; // Importiere den AuthContext
+import { AuthContext } from "../context/auth.context";
 
 const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID as string;
 const SPOTIFY_AUTHORIZE_ENDPOINT: string =
@@ -203,8 +204,10 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
       <div className="overlay-content">
         <div className="contentFieldWrapper">
           <h3 className="title">Save Playlist</h3>
-          <div>
-            <img src={connectIcon} alt="Connect Icon" />
+          <div className="connectWrapper">
+            <img src={appIcon} alt="Icon of the spotify project app" />
+            <p>🔗</p>
+            <img src={spotifyIcon} alt="Icon of the spotify app" />
           </div>
           <p className="inputFont connectDescription">
             Connect our App with your Spotify account to save your new playlist.
