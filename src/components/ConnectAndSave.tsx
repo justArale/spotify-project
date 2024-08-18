@@ -99,6 +99,24 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
 
   const handleLogin = () => {
     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAMS}&response_type=token&show_dialog=true`;
+
+    // // If you want to open the authorization in a seperate window
+    // const spotifyAuthUrl = `${SPOTIFY_AUTHORIZE_ENDPOINT}client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAMS}&response_type=token&show_dialog=true`;
+
+    // // Set the size of the window
+    // const width = 500;
+    // const height = 600;
+
+    // // Calculate the positon of the window (its now in the middle)
+    // const left = window.screen.width / 2 - width / 2;
+    // const top = window.screen.height / 2 - height / 2;
+
+    // // Open the window in the setted size and position
+    // window.open(
+    //   spotifyAuthUrl,
+    //   "_blank",
+    //   `width=${width},height=${height},top=${top},left=${left}`
+    // );
   };
 
   const getUserInfo = () => {
