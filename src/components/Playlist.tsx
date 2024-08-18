@@ -29,6 +29,12 @@ const Playlist: React.FC = () => {
     audio.play();
     setCurrentAudio(audio);
     setCurrentTrackUrl(url);
+    // Stop the track after 29 seconds
+    setTimeout(() => {
+      audio.pause();
+      setCurrentTrackUrl(null);
+      setCurrentAudio(null);
+    }, 29000);
   };
 
   return (
