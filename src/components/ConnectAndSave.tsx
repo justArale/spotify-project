@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./ConnectAndSave.css";
-import connectIcon from "../assets/icons/connect.png";
 import addIcon from "../assets/icons/add.svg";
 import appIcon from "../assets/icons/app.svg";
 import spotifyIcon from "../assets/icons/spotify.svg";
