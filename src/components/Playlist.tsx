@@ -57,11 +57,6 @@ const Playlist: React.FC = () => {
                       : playIcon
                   }
                   alt={currentTrackUrl === track.preview_url ? "Pause" : "Play"}
-                  // className={`progress-circle ${
-                  //   currentTrackUrl === track.preview_url && !currentAudio?.paused
-                  //     ? ""
-                  //     : "paused"
-                  // }`}
                 />
               )}
             </div>
