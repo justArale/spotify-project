@@ -54,3 +54,20 @@
   color: #6030c0;
   margin: 0;
 }
+
+.audioIconWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.processEllipse,
+.fullEllipse {
+  position: absolute;
+}
+
+.audioIcon {
+  position: relative;
+  z-index: 2;
+}

@@ -3,6 +3,8 @@ import { CollectContext } from "../context/collectData.context";
 import "./Playlist.css";
 import playIcon from "../assets/icons/play.svg";
 import pauseIcon from "../assets/icons/pause.svg";
+import loadingEllipseIcon from "../assets/icons/loadingEllipse.svg";
+import fullEllipseIcon from "../assets/icons/fullEllipse.svg";
 
 const Playlist: React.FC = () => {
   const { playlistData } = useContext(CollectContext);
@@ -29,6 +31,12 @@ const Playlist: React.FC = () => {
     audio.play();
     setCurrentAudio(audio);
     setCurrentTrackUrl(url);
+    // Stop the track after 29 seconds
+    setTimeout(() => {
+      audio.pause();
+      setCurrentTrackUrl(null);
+      setCurrentAudio(null);
+    }, 29000);
   };
 
   return (
@@ -49,15 +57,30 @@ const Playlist: React.FC = () => {
             </div>
             <div className="trackNumberWrapper">
               {track.preview_url && (
-                <img
-                  src={
-                    currentTrackUrl === track.preview_url &&
-                    !currentAudio?.paused
-                      ? pauseIcon
-                      : playIcon
-                  }
-                  alt={currentTrackUrl === track.preview_url ? "Pause" : "Play"}
-                />
+                <div className="audioIconWrapper">
+                  <img
+                    src={loadingEllipseIcon}
+                    alt={"loadingEllipseIcon"}
+                    className="processEllipse"
+                  />
+                  <img
+                    src={fullEllipseIcon}
+                    alt={"loadingEllipseIcon"}
+                    className="fullEllipse"
+                  />
+                  <img
+                    src={
+                      currentTrackUrl === track.preview_url &&
+                      !currentAudio?.paused
+                        ? pauseIcon
+                        : playIcon
+                    }
+                    alt={
+                      currentTrackUrl === track.preview_url ? "Pause" : "Play"
+                    }
+                    className="audioIcon"
+                  />
+                </div>
               )}
             </div>
           </li>
