@@ -3,8 +3,8 @@ import { CollectContext } from "../context/collectData.context";
 import "./Playlist.css";
 import playIcon from "../assets/icons/play.svg";
 import pauseIcon from "../assets/icons/pause.svg";
-import loadingEllipseIcon from "../assets/icons/loadingEllipse.svg";
-import fullEllipseIcon from "../assets/icons/fullEllipse.svg";
+import baseEllipseIcon from "../assets/icons/loadingEllipse.svg";
+import loadingEllipseIcon from "../assets/icons/fullEllipse.svg";
 
 const Playlist: React.FC = () => {
   const { playlistData } = useContext(CollectContext);
@@ -31,6 +31,7 @@ const Playlist: React.FC = () => {
     audio.play();
     setCurrentAudio(audio);
     setCurrentTrackUrl(url);
+
     // Stop the track after 29 seconds
     setTimeout(() => {
       audio.pause();
@@ -59,15 +60,22 @@ const Playlist: React.FC = () => {
               {track.preview_url && (
                 <div className="audioIconWrapper">
                   <img
-                    src={loadingEllipseIcon}
-                    alt={"loadingEllipseIcon"}
-                    className="processEllipse"
+                    src={baseEllipseIcon}
+                    alt={"baseEllipseIcon"}
+                    className="baseEllipseIcon"
                   />
                   <img
-                    src={fullEllipseIcon}
+                    src={loadingEllipseIcon}
                     alt={"loadingEllipseIcon"}
-                    className="fullEllipse"
+                    className={`loadingEllipseIcon ${
+                      currentTrackUrl === track.preview_url && `hidden`
+                    }`}
                   />
+                  <div
+                    className={`progressCicle ${
+                      currentTrackUrl === track.preview_url && `active`
+                    }`}
+                  ></div>
                   <img
                     src={
                       currentTrackUrl === track.preview_url &&

@@ -62,11 +62,58 @@
   align-items: center;
 }
 
-.processEllipse,
-.fullEllipse {
+.audioIcon {
+  position: relative;
+}
+
+.baseEllipseIcon,
+.loadingEllipseIcon,
+.progressCicle {
   position: absolute;
 }
 
-.audioIcon {
-  position: relative;
+.loadingEllipseIcon.hidden {
+  display: none;
+}
+
+.progressCicle.active {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #9f8fbf;
+  animation: progressAnimation 29s linear forwards;
+}
+
+@keyframes progressAnimation {
+  0% {
+    border-top-color: rgba(255, 0, 0, 0);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  25% {
+    border-top-color: rgba(159, 143, 191, 1);
+    border-right-color: rgba(255, 0, 0, 0);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  50% {
+    border-top-color: rgba(159, 143, 191, 1);
+    border-right-color: rgba(159, 143, 191, 1);
+    border-bottom-color: rgba(255, 0, 0, 0);
+    border-left-color: transparent;
+  }
+  75% {
+    border-top-color: rgba(159, 143, 191, 1);
+    border-right-color: rgba(159, 143, 191, 1);
+    border-bottom-color: rgba(159, 143, 191, 1);
+    border-left-color: rgba(255, 0, 0, 0);
+  }
+  100% {
+    border-top-color: rgba(159, 143, 191, 1);
+    border-right-color: rgba(159, 143, 191, 1);
+    border-bottom-color: rgba(159, 143, 191, 1);
+    border-left-color: rgba(159, 143, 191, 1);
+  }
 }
