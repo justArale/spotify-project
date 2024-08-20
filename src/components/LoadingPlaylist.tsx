@@ -32,14 +32,15 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
           },
         }
       );
+
       setPlaylistData(response.data.tracks);
       setIsLoading(false);
       console.log(response.data.tracks);
       navigate("/result");
-      onClose();
-      // Close the overlay, if the current URL path is '/result' insteat of reload
 
-      //   // Check if the current URL path is '/result'
+      // Close the overlay, if the current URL path is '/result' insteat of reload
+      onClose();
+      // Check if the current URL path is '/result'
       if (window.location.pathname === "/result") {
         // Reload the page if on the '/result' page
         window.location.reload();
