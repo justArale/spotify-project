@@ -13,7 +13,6 @@
 .blurryBackground {
   position: absolute;
   top: -20px;
-  /* left: -10px; */
   width: calc(100% + 40px);
   height: calc(100% + 40px);
   background-size: cover;
