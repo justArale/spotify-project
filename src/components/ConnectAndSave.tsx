@@ -14,7 +14,7 @@ const SPOTIFY_AUTHORIZE_ENDPOINT: string =
 
 // Uncomment if publish is ready
 const REDIRECT_URL_AFTER_LOGIN: string =
-  "https://arale-spotify-project2.netlify.app/result";
+  "https://arale-spotify-project.netlify.app/result";
 
 const SPACE: string = "%20";
 const SCOPES: string[] = [
