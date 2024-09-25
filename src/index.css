@@ -11,6 +11,7 @@
 
   --font-size-xsmall: 12px;
   --font-size-small: 16px;
+  --font-size-button: 18px;
   --font-size-medium: 20px;
   --font-size-large: 24px;
   --font-size-xlarge: 32px;
@@ -77,6 +78,13 @@
   font-weight: var(--font-weight-semiBold);
   line-height: 2em;
   letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.buttonFont {
+  font-size: var(--font-size-button);
+  font-weight: var(--font-weight-semiBold);
+  line-height: 1.75em;
   margin: 0;
 }
 
