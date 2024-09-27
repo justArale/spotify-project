@@ -64,7 +64,7 @@ const CreateButton: React.FC = () => {
   return (
     <div>
       <button
-        className={`startButton buttonFont whiteFont ${
+        className={`startButton buttonFont ${
           isResultPage ? "resultPageStyle" : ""
         }`}
         onClick={handleStartClick}
