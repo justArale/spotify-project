@@ -1,13 +1,14 @@
 import "./CreateButton.css";
 import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
-import newIcon from "../assets/icons/new.svg";
+// import newIcon from "../assets/icons/new.svg";
 import SearchArtist from "./SearchArtist";
 import SelectMood from "./SelectMood";
 import LoadingPlaylist from "./LoadingPlaylist";
 import "./Overlay.css";
 import axios from "axios";
 import { CollectContext } from "../context/collectData.context";
+import { Add } from "@just1arale/icons";
 
 const CreateButton: React.FC = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
@@ -68,10 +69,8 @@ const CreateButton: React.FC = () => {
         }`}
         onClick={handleStartClick}
       >
-        <div className="buttonIconWrapper">
-          <img src={newIcon} alt="small plus icon" />
-        </div>
-        Create new
+        <Add width="24" height="24" />
+        Create playlist
       </button>
       {isOverlayOpen && <GeneratePlaylist onClose={handleCloseOverlay} />}
     </div>
