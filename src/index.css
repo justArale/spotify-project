@@ -1,13 +1,15 @@
 @import "font.css";
 
 :root {
-  --main-color: #6030bf;
+  --background-color: #cdd1ce;
+  --main-color: #243033;
+  /* --main-color: #6030bf;
   --secondary-color: #f6f2ff;
   --result-color: #9f8fbf;
   --box-background: #f6f2ff;
+  --color-green: #1ed760; */
   --color-black: #000;
   --color-white: #fff;
-  --color-green: #1ed760;
 
   --font-size-xsmall: 12px;
   --font-size-small: 16px;
@@ -40,9 +42,9 @@
   color: var(--color-white);
 }
 
-.mainColor {
+/* .mainColor {
   color: var(--main-color);
-}
+} */
 
 .pageTitle {
   font-size: var(--font-size-xlarge);
