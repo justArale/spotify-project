@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Landingpage from "./pages/Landingpage";
 import Resultpage from "./pages/Resultpage";
 import Errorpage from "./pages/Errorpage";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path="/result" element={<Resultpage />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
