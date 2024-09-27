@@ -2,7 +2,7 @@
 
 :root {
   --background-color: #cdd1ce;
-  --main-color: #243033;
+  --main-color: 36, 48, 51;
   /* --main-color: #6030bf;
   --secondary-color: #f6f2ff;
   --result-color: #9f8fbf;
@@ -20,6 +20,7 @@
 
   --font-weight-medium: 500;
   --font-weight-semiBold: 600;
+  --font-weight-bold: 700;
   --font-weight-extraBold: 800;
 
   --font-family-main: "Montserrat", -apple-system, BlinkMacSystemFont,
@@ -72,6 +73,7 @@
   font-weight: var(--font-weight-medium);
   line-height: 1.5em;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -87,6 +89,13 @@
   font-size: var(--font-size-button);
   font-weight: var(--font-weight-semiBold);
   line-height: 1.75em;
+  margin: 0;
+}
+
+.numberFont {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5em;
   margin: 0;
 }
 
