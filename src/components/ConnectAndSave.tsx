@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./ConnectAndSave.css";
-import addIcon from "../assets/icons/add.svg";
+// import addIcon from "../assets/icons/add.svg";
+import { Save } from "@just1arale/icons";
+import { Saved } from "@just1arale/icons";
 import appIcon from "../assets/icons/app.svg";
 import spotifyIcon from "../assets/icons/spotify.svg";
 import { CollectContext } from "../context/collectData.context";
@@ -42,10 +44,8 @@ const ConnectAndSave: React.FC = () => {
       {playlistSaved ? (
         <div>
           <button className="SaveButton buttonFont disable blackFont">
-            <div className="buttonIconWrapper">
-              <img src={addIcon} alt="small plus icon inside of a circle" />
-            </div>
-            Successfully saved
+            <Saved width="24" height="24" />
+            Playlist saved
           </button>
         </div>
       ) : (
@@ -53,9 +53,7 @@ const ConnectAndSave: React.FC = () => {
           className="SaveButton buttonFont blackFont"
           onClick={handleStartClick}
         >
-          <div className="buttonIconWrapper">
-            <img src={addIcon} alt="small plus icon inside of a circle" />
-          </div>
+          <Save width="24" height="24" />
           Save to Your Library
         </button>
       )}
