@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   box-sizing: border-box;
   cursor: pointer;
   position: relative;
