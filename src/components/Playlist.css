@@ -16,44 +16,44 @@
   display: flex;
   gap: 16px;
   align-items: center;
-  background-color: var(--box-background);
+  background-color: rgb(var(--color-white), 0.3);
   box-sizing: border-box;
   cursor: pointer;
 }
 
 .noTrack {
   cursor: not-allowed;
-  background-color: var(--box-background);
+  background-color: rgb(var(--color-white), 0.3);
   opacity: 0.5;
 }
 
-.trackNumberWrapper {
+/* .trackNumberWrapper {
   width: 32px;
   height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.trackNumber {
+/* .trackNumber {
   font-size: var(--font-size-xsmall);
   font-weight: var(--font-weight-bold);
   color: #8060c0;
   margin: 0;
-}
+} */
 
-.trackName {
+/* .trackName {
   font-size: 18px;
   font-weight: var(--font-weight-semiBold);
   margin: 0;
-}
+} */
 
-.trackArtistName {
+/* .trackArtistName {
   font-size: 14px;
   font-weight: var(--font-weight-medium);
   color: #6030c0;
   margin: 0;
-}
+} */
 
 .audioIconWrapper {
   position: relative;
@@ -77,11 +77,11 @@
 }
 
 .progressCicle.active {
-  width: 24px;
-  height: 24px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 2px solid transparent;
-  border-top-color: #9f8fbf;
+  border-top-color: rgb(var(--main-color));
   animation: progressAnimation 29s linear forwards;
 }
 
@@ -93,27 +93,27 @@
     border-left-color: transparent;
   }
   25% {
-    border-top-color: rgba(159, 143, 191, 1);
+    border-top-color: rgba(var(--main-color) 1);
     border-right-color: rgba(255, 0, 0, 0);
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
   50% {
-    border-top-color: rgba(159, 143, 191, 1);
-    border-right-color: rgba(159, 143, 191, 1);
+    border-top-color: rgba(var(--main-color) 1);
+    border-right-color: rgba(var(--main-color) 1);
     border-bottom-color: rgba(255, 0, 0, 0);
     border-left-color: transparent;
   }
   75% {
-    border-top-color: rgba(159, 143, 191, 1);
-    border-right-color: rgba(159, 143, 191, 1);
-    border-bottom-color: rgba(159, 143, 191, 1);
+    border-top-color: rgba(var(--main-color) 1);
+    border-right-color: rgba(var(--main-color) 1);
+    border-bottom-color: rgba(var(--main-color) 1);
     border-left-color: rgba(255, 0, 0, 0);
   }
   100% {
-    border-top-color: rgba(159, 143, 191, 1);
-    border-right-color: rgba(159, 143, 191, 1);
-    border-bottom-color: rgba(159, 143, 191, 1);
-    border-left-color: rgba(159, 143, 191, 1);
+    border-top-color: rgba(var(--main-color) 1);
+    border-right-color: rgba(var(--main-color) 1);
+    border-bottom-color: rgba(var(--main-color) 1);
+    border-left-color: rgba(var(--main-color) 1);
   }
 }
