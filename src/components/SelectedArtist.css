@@ -1,13 +1,16 @@
 .resultHeader {
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 72px;
-  padding-bottom: 48px;
+  padding: 24px;
+  /* padding-top: 72px;
+  padding-bottom: 48px; */
   position: relative;
   overflow: hidden;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .blurryBackground {
@@ -32,13 +35,13 @@
 }
 
 .resultHeaderContentWrapper {
-  max-width: 800px;
+  max-width: 400px;
   width: 100%;
-  padding: 0 16px;
+  /* padding: 0 16px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
@@ -46,36 +49,57 @@
 
 .resultPlaylistContent {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 32px;
   width: 100%;
 }
 
 .resultPlaylistArtistImageWrapper {
-  width: 160px;
-  height: 160px;
-  border-radius: 8px;
-  overflow: hidden;
+  display: none;
+}
+
+.resultPlaylistInnerContent {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
 }
 
 .actionButtons {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 16px;
 }
 
-@media (max-width: 660px) {
+@media (min-width: 725px) {
+  .resultHeader {
+    padding: 32px;
+  }
+
   .resultHeaderContentWrapper {
-    max-width: 400px;
+    max-width: 800px;
+    gap: 32px;
   }
   .resultPlaylistContent {
-    flex-direction: column;
+    flex-direction: row;
+  }
+
+  .resultPlaylistArtistImageWrapper {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 192px;
+    height: 192px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .actionButtons {
-    flex-direction: column;
+    flex-direction: row;
   }
 }

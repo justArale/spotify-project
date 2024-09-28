@@ -17,6 +17,7 @@
   --font-size-medium: 20px;
   --font-size-large: 24px;
   --font-size-xlarge: 32px;
+  --font-size-xxlarge: 48px;
 
   --font-weight-medium: 500;
   --font-weight-semiBold: 600;
@@ -97,6 +98,12 @@
   font-weight: var(--font-weight-bold);
   line-height: 1.5em;
   margin: 0;
+}
+
+@media (min-width: 725px) {
+  .pageTitle {
+    font-size: var(--font-size-xxlarge);
+  }
 }
 
 /* old Font */
