@@ -1,7 +1,7 @@
 .startButton {
   width: auto;
   height: auto;
-  color: var(--color-white);
+  color: rgb(var(--color-white));
   background-color: rgba(var(--main-color));
   border-radius: 90px;
   border: 1px solid rgba(var(--main-color));
@@ -17,12 +17,12 @@
 
 .resultPageStyle {
   background-color: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(var(--color-white), 0.5);
 }
 
 @media (min-width: 725px) {
   .startButton {
-    background-color: var(--background-color);
+    background-color: rgb(var(--background-color));
     color: rgba(var(--main-color));
     border: none;
     border-radius: 1000px;
