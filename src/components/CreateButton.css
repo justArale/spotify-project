@@ -15,9 +15,10 @@
   position: relative;
 }
 
-.resultPageStyle {
+.startButton.resultPageStyle {
   background-color: transparent;
-  border: 2px solid rgba(var(--color-white), 0.5);
+  border: 2px solid rgba(var(--color-white), 1);
+  color: rgb(var(--color-white));
 }
 
 @media (min-width: 725px) {
@@ -31,7 +32,7 @@
     z-index: 1;
   }
 
-  .startButton::after {
+  .mainPageStyle::after {
     content: "";
     position: absolute;
     height: 107%;
