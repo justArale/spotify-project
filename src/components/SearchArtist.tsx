@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./SearchArtist.css";
-import arrowIcon from "../assets/icons/arrow.svg";
-import searchIcon from "../assets/icons/search.svg";
+// import arrowIcon from "../assets/icons/arrow.svg";
+// import searchIcon from "../assets/icons/search.svg";
 import { CollectContext } from "../context/collectData.context";
+import { Search } from "@just1arale/icons";
+import { ArrowRight } from "@just1arale/icons";
+import { Clear } from "@just1arale/icons";
 
 interface ArtistProps {
   getArtistId: (id: string) => void;
@@ -119,13 +122,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
       <h1 className="title">Search Artist</h1>
       <form onSubmit={handleSubmit} className="contentField">
         <div className="searchBarWrapper">
-          <div className="iconWrapper">
-            <img
-              src={searchIcon}
-              alt="Icon of a magnifying glass"
-              className="searchIcon"
-            />
-          </div>
+          <Search width="24" height="24" />
           <input
             type="text"
             value={artistNameInput}
@@ -133,6 +130,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
             placeholder="Search Artist"
             className="searchBar inputFont"
           />
+          {artistNameInput && <Clear width="24" height="24" />}
         </div>
       </form>
 
@@ -157,10 +155,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
                 )}
 
               <span className="inputFont contentText">{artist.name}</span>
-              <img
-                src={arrowIcon}
-                alt="Icon of an arrow that shows to the right side"
-              />
+              <ArrowRight width="24" height="24" />
             </li>
           ))}
         </ul>
