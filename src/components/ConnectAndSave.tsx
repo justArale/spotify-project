@@ -54,7 +54,7 @@ const ConnectAndSave: React.FC = () => {
           onClick={handleStartClick}
         >
           <Save width="24" height="24" />
-          Save to Your Library
+          Save playlist
         </button>
       )}
       {isOverlayOpen && (

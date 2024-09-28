@@ -12,14 +12,14 @@
 .SaveButton {
   width: 100%;
   height: auto;
-  background-color: var(--color-white);
+  background-color: rgb(var(--color-white));
   border-radius: 90px;
-  border: 1px solid #fff;
+  border: none;
   padding: 8px 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   box-sizing: border-box;
   cursor: pointer;
 }
