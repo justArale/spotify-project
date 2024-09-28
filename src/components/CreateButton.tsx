@@ -70,7 +70,7 @@ const CreateButton: React.FC = () => {
         onClick={handleStartClick}
       >
         <Add width="24" height="24" />
-        Create playlist
+        {isResultPage ? "Create new playlist" : "Create playlist"}
       </button>
       {isOverlayOpen && <GeneratePlaylist onClose={handleCloseOverlay} />}
     </div>
