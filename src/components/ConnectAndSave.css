@@ -1,3 +1,7 @@
+.buttonWrapper {
+  width: 100%;
+}
+
 .connectWrapper {
   display: flex;
   justify-content: center;
@@ -6,7 +10,7 @@
 }
 
 .SaveButton {
-  width: auto;
+  width: 100%;
   height: auto;
   background-color: var(--color-white);
   border-radius: 90px;
@@ -39,4 +43,14 @@
 
 .disable {
   cursor: not-allowed;
+}
+
+@media (min-width: 725px) {
+  .SaveButton {
+    width: auto;
+  }
+
+  .buttonWrapper {
+    width: auto;
+  }
 }

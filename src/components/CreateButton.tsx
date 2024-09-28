@@ -62,7 +62,7 @@ const CreateButton: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="buttonWrapper">
       <button
         className={`startButton buttonFont ${
           isResultPage ? "resultPageStyle" : ""

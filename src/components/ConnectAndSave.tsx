@@ -38,7 +38,7 @@ const ConnectAndSave: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="buttonWrapper">
       {playlistSaved ? (
         <div>
           <button className="SaveButton buttonFont disable blackFont">
