@@ -1,5 +1,5 @@
 .startButton {
-  width: 100%;
+  width: auto;
   height: auto;
   color: rgb(var(--color-white));
   background-color: rgba(var(--main-color));
@@ -16,6 +16,7 @@
 }
 
 .startButton.resultPageStyle {
+  width: 100%;
   background-color: transparent;
   border: none;
   box-shadow: inset 0 0 0 2px rgba(var(--color-white));
