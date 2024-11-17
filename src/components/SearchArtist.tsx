@@ -139,6 +139,33 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
       ) : (
         <p className="bodyText">Result</p>
       )}
+
+      {artistNameInput.trim() !== "" && searchResults.length > 0 && (
+        <ul className="contentList">
+          {searchResults.slice(0, 5).map((artist) => (
+            <li
+              key={artist.id}
+              onClick={() => handleOptionClick(artist)}
+              className="contentField contentListItem"
+            >
+              {artist.images &&
+                artist.images.length > 0 &&
+                artist.images[0].url && (
+                  <div className="artistImageWrapper">
+                    <img
+                      src={artist.images[0].url}
+                      alt={artist.name}
+                      className="artistImage"
+                    />
+                  </div>
+                )}
+
+              <span className="inputFont contentText">{artist.name}</span>
+              <ArrowRight width="24" height="24" />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
