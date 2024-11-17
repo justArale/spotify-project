@@ -16,5 +16,6 @@
   .landingPageWrapper {
     gap: 64px;
     padding: 64px;
+    max-width: 64em;
   }
 }
