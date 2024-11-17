@@ -120,7 +120,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
   return (
     <div className="contentFieldWrapper">
       <p className="bodyText">Step 1 of 2</p>
-      <h1 className="title">Search Artist</h1>
+      <h1 className="pageTitle">Select Artist</h1>
       <form onSubmit={handleSubmit} className="contentField">
         <div className="searchBarWrapper">
           <Search width="24" height="24" />
@@ -134,32 +134,10 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
           {artistNameInput && <Clear width="24" height="24" />}
         </div>
       </form>
-
-      {artistNameInput.trim() !== "" && searchResults.length > 0 && (
-        <ul className="contentList">
-          {searchResults.slice(0, 5).map((artist) => (
-            <li
-              key={artist.id}
-              onClick={() => handleOptionClick(artist)}
-              className="contentField contentListItem"
-            >
-              {artist.images &&
-                artist.images.length > 0 &&
-                artist.images[0].url && (
-                  <div className="artistImageWrapper">
-                    <img
-                      src={artist.images[0].url}
-                      alt={artist.name}
-                      className="artistImage"
-                    />
-                  </div>
-                )}
-
-              <span className="inputFont contentText">{artist.name}</span>
-              <ArrowRight width="24" height="24" />
-            </li>
-          ))}
-        </ul>
+      {artistNameInput.length == 0 ? (
+        <p className="bodyText">Popular</p>
+      ) : (
+        <p className="bodyText">Result</p>
       )}
     </div>
   );
