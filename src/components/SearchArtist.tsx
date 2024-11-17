@@ -119,6 +119,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
 
   return (
     <div className="contentFieldWrapper">
+      <p className="bodyText">Step 1 of 2</p>
       <h1 className="title">Search Artist</h1>
       <form onSubmit={handleSubmit} className="contentField">
         <div className="searchBarWrapper">

@@ -63,7 +63,7 @@ const LoadingPlaylist: React.FC<GenerateProps> = ({
     <div>
       {isLoading ? (
         <div className="contentFieldWrapper">
-          <h1 className="title">Done</h1>
+          <p className="bodyText">Done</p>
 
           <img src={loadingIcon} alt="Loading Image" className="loadingImage" />
           <p className="inputFont contentText">

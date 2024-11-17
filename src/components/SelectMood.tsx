@@ -18,6 +18,7 @@ const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
 
   return (
     <div className="contentFieldWrapper">
+      <p className="bodyText">Step 2 of 2</p>
       <h4 className="title">Select Mood</h4>
       <ul className="contentList">
         <li
