@@ -123,7 +123,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
       <h1 className="pageTitle">Select Artist</h1>
       <form onSubmit={handleSubmit} className="contentField">
         <div className="searchBarWrapper">
-          <Search width="24" height="24" />
+          <Search width="24" height="24" className="searchIcon" />
           <input
             type="text"
             value={artistNameInput}
