@@ -4,6 +4,7 @@ import { CollectContext } from "../context/collectData.context";
 import SearchArtist from "../components/SearchArtist";
 import SelectMood from "../components/SelectMood";
 import LoadingPlaylist from "../components/LoadingPlaylist";
+import "../components/Generatepage.css";
 
 const Generatepage: React.FC = () => {
   // const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
@@ -62,21 +63,19 @@ const Generatepage: React.FC = () => {
   }, [accessToken]);
 
   return (
-    <div className="landingPageWrapper">
-      <div className="overlay-content">
-        {!artistID ? (
-          <SearchArtist getArtistId={getArtistId} />
-        ) : artistID && danceMin === null ? (
-          <SelectMood getDanceability={getDanceability} />
-        ) : artistID && danceMin !== null && danceMax !== null ? (
-          <LoadingPlaylist
-            artistID={artistID}
-            danceMin={danceMin}
-            danceMax={danceMax}
-            // onClose={onClose}
-          />
-        ) : null}
-      </div>
+    <div className="landingPageWrapper generatePageWrapper">
+      {!artistID ? (
+        <SearchArtist getArtistId={getArtistId} />
+      ) : artistID && danceMin === null ? (
+        <SelectMood getDanceability={getDanceability} />
+      ) : artistID && danceMin !== null && danceMax !== null ? (
+        <LoadingPlaylist
+          artistID={artistID}
+          danceMin={danceMin}
+          danceMax={danceMax}
+          // onClose={onClose}
+        />
+      ) : null}
     </div>
   );
 };
