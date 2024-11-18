@@ -19,6 +19,7 @@
   --font-size-xlarge: 32px;
   --font-size-xxlarge: 48px;
 
+  --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semiBold: 600;
   --font-weight-bold: 700;
@@ -58,6 +59,13 @@
 .headline {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-medium);
+  line-height: 1.5em;
+  margin: 0;
+}
+
+.headlineThin {
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-regular);
   line-height: 1.5em;
   margin: 0;
 }

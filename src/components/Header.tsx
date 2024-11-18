@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         </p>
         <div className="headerContent">
           <h1 className="pageTitle">Moodly</h1>
-          <p className="headline">
+          <p className="headlineThin">
             Generate Spotify playlists based on mood and artists
           </p>
         </div>
