@@ -19,6 +19,10 @@
   /* padding: 0 32px; */
 }
 
+.headphoneWrapper {
+  display: none;
+}
+
 /* .headerContent .headline {
   margin-bottom: 8px;
 }
@@ -27,8 +31,28 @@
   margin-bottom: 32px;
 } */
 
-/* @media (max-width: 725px) {
-  .headerContentWrapper {
-    width: calc(100% - 40px);
+@media (min-width: 725px) {
+  .headerWrapper {
+    width: 100%;
+    display: flex;
+    position: relative;
   }
-} */
+
+  .headerContentWrapper {
+    width: 40%;
+  }
+
+  .headphoneWrapper {
+    display: block;
+    width: 35em;
+    height: 35em;
+    position: absolute;
+    right: 0px;
+    top: -8em;
+  }
+
+  .headphone {
+    width: 100%;
+    height: 100%;
+  }
+}

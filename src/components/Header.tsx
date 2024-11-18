@@ -2,20 +2,26 @@ import "./Header.css";
 import React from "react";
 import CreateButton from "./CreateButton";
 import { SpotifyLogo } from "@just1arale/icons";
+import headphone from "../assets/headphone.svg";
 
 const Header: React.FC = () => {
   return (
-    <div className="headerContentWrapper">
-      <p className="bodyText">
-        made for <SpotifyLogo width="16" height="16" />
-      </p>
-      <div className="headerContent">
-        <h1 className="pageTitle">Moodly</h1>
-        <p className="headline">
-          Generate Spotify playlists based on mood and artists
+    <div className="headerWrapper">
+      <div className="headerContentWrapper">
+        <p className="bodyText">
+          made for <SpotifyLogo width="16" height="16" />
         </p>
+        <div className="headerContent">
+          <h1 className="pageTitle">Moodly</h1>
+          <p className="headline">
+            Generate Spotify playlists based on mood and artists
+          </p>
+        </div>
+        <CreateButton />
       </div>
-      <CreateButton />
+      <div className="headphoneWrapper">
+        <img src={headphone} className="headphone" />
+      </div>
     </div>
   );
 };
