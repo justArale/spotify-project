@@ -39,7 +39,7 @@
   }
 
   .headerContentWrapper {
-    width: 40%;
+    width: 50%;
   }
 
   .headphoneWrapper {
@@ -47,7 +47,7 @@
     width: 35em;
     height: 35em;
     position: absolute;
-    right: 0px;
+    right: -5em;
     top: -8em;
   }
 
