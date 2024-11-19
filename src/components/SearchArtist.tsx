@@ -31,6 +31,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
   const tokenFromLocalStorage = localStorage.getItem("accessTokenLocal");
   const { setChoosenArtistName } = useContext(CollectContext);
   const { setChoosenArtistImage } = useContext(CollectContext);
+  const me: string = import.meta.env.SPOTIFY_USER_ID;
 
   const searchArtist = async () => {
     if (!tokenFromLocalStorage) {
@@ -88,6 +89,46 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
     }
   };
 
+  useEffect(() => {
+    const fetchPopularArtists = async () => {
+      if (!tokenFromLocalStorage) {
+        console.log("No access token available");
+        return;
+      }
+
+      try {
+        const response = await axios.get<SearchResult>(
+          `https://api.spotify.com/v1/browse/new-releases?limit=20`,
+          {
+            headers: {
+              Authorization: `Bearer ${tokenFromLocalStorage}`,
+            },
+          }
+        );
+
+        const albums = response.data.albums.items;
+        const artistsWithImages = albums.flatMap((album: any) =>
+          album.artists.map((artist: any) => ({
+            id: artist.id,
+            name: artist.name,
+            image: album.images[0]?.url || "",
+          }))
+        );
+
+        setSearchResults(artistsWithImages);
+        console.log("Artists with images:", artistsWithImages);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.log("Error fetching popular artists:", error.response?.data);
+        } else {
+          console.log("An unexpected error occurred:", error);
+        }
+      }
+    };
+
+    fetchPopularArtists();
+  }, []);
+
   // Trigger search when artistNameInput changes
   useEffect(() => {
     if (
@@ -140,7 +181,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
         <p className="bodyText">Result</p>
       )}
 
-      {artistNameInput.trim() !== "" && searchResults.length > 0 && (
+      {searchResults.length > 0 && (
         <ul className="contentList">
           {searchResults.slice(0, 5).map((artist) => (
             <li
