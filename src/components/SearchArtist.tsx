@@ -16,10 +16,15 @@ interface Artist {
   id: string;
   name: string;
   images: { url: string }[];
+  albums: [];
+  artists?: Artist[];
 }
 
 interface SearchResult {
   artists: {
+    items: Artist[];
+  };
+  albums: {
     items: Artist[];
   };
 }
@@ -31,7 +36,6 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
   const tokenFromLocalStorage = localStorage.getItem("accessTokenLocal");
   const { setChoosenArtistName } = useContext(CollectContext);
   const { setChoosenArtistImage } = useContext(CollectContext);
-  const me: string = import.meta.env.SPOTIFY_USER_ID;
 
   const searchArtist = async () => {
     if (!tokenFromLocalStorage) {
@@ -89,45 +93,70 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
     }
   };
 
-  useEffect(() => {
-    const fetchPopularArtists = async () => {
-      if (!tokenFromLocalStorage) {
-        console.log("No access token available");
-        return;
-      }
+  const fetchPopularArtists = async () => {
+    if (!tokenFromLocalStorage) {
+      console.log("No access token available");
+      return;
+    }
 
-      try {
-        const response = await axios.get<SearchResult>(
-          `https://api.spotify.com/v1/browse/new-releases?limit=20`,
+    try {
+      // Fetch popular albums
+      const response = await axios.get<SearchResult>(
+        `https://api.spotify.com/v1/browse/new-releases?limit=20`,
+        {
+          headers: {
+            Authorization: `Bearer ${tokenFromLocalStorage}`,
+          },
+        }
+      );
+
+      // Extract artist IDs from albums
+      const albums = response.data.albums.items;
+      const artists = albums.flatMap((album) =>
+        album.artists?.map((artist) => ({
+          id: artist.id,
+          name: artist.name,
+          images: [],
+          albums: [],
+        }))
+      );
+
+      // Take the first 5 artists
+      const top5Artists = artists.slice(0, 5);
+
+      // Fetch artist images
+      const fetchArtistImages = async (artistId: string) => {
+        const artistResponse = await axios.get<Artist>(
+          `https://api.spotify.com/v1/artists/${artistId}`,
           {
             headers: {
               Authorization: `Bearer ${tokenFromLocalStorage}`,
             },
           }
         );
+        return {
+          id: artistResponse.data.id,
+          name: artistResponse.data.name,
+          images: artistResponse.data.images || "",
+          albums: [],
+        };
+      };
 
-        const albums = response.data.albums.items;
-        const artistsWithImages = albums.flatMap((album: any) =>
-          album.artists.map((artist: any) => ({
-            id: artist.id,
-            name: artist.name,
-            image: album.images[0]?.url || "",
-          }))
-        );
+      // Fetch images for the top 5 artists in parallel
+      const artistsWithImages = await Promise.all(
+        top5Artists.map((artist) => fetchArtistImages(artist.id))
+      );
 
-        setSearchResults(artistsWithImages);
-        console.log("Artists with images:", artistsWithImages);
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          console.log("Error fetching popular artists:", error.response?.data);
-        } else {
-          console.log("An unexpected error occurred:", error);
-        }
+      setSearchResults(artistsWithImages);
+      console.log("Fetched popular artists with images:", artistsWithImages);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log("Error fetching popular artists:", error.response?.data);
+      } else {
+        console.log("An unexpected error occurred:", error);
       }
-    };
-
-    fetchPopularArtists();
-  }, []);
+    }
+  };
 
   // Trigger search when artistNameInput changes
   useEffect(() => {
@@ -137,7 +166,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
     ) {
       searchArtist();
     } else {
-      setSearchResults([]); // Clear results if input is empty or too short
+      fetchPopularArtists(); // Show popular artists if input is empty or too short
     }
   }, [artistNameInput]);
 
