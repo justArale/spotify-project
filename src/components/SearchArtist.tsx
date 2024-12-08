@@ -16,7 +16,7 @@ interface Artist {
   id: string;
   name: string;
   images: { url: string }[];
-  albums: [];
+  albums: any[];
   artists?: Artist[];
 }
 
@@ -113,16 +113,20 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
       // Extract artist IDs from albums
       const albums = response.data.albums.items;
       const artists = albums.flatMap((album) =>
-        album.artists?.map((artist) => ({
-          id: artist.id,
-          name: artist.name,
-          images: [],
-          albums: [],
-        }))
+        album.artists
+          ? album.artists.map((artist) => ({
+              id: artist.id,
+              name: artist.name,
+              images: [],
+              albums: [],
+            }))
+          : []
       );
 
-      // Take the first 5 artists
-      const top5Artists = artists.slice(0, 5);
+      // Take the first 5 artists and ensure no undefined values are included
+      const top5Artists = artists
+        .slice(0, 5)
+        .filter((artist) => artist !== undefined);
 
       // Fetch artist images
       const fetchArtistImages = async (artistId: string) => {
