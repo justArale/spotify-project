@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./ConnectAndSave.css";
-import addIcon from "../assets/icons/add.svg";
+import { Save } from "@just1arale/icons";
+import { Saved } from "@just1arale/icons";
 import appIcon from "../assets/icons/app.svg";
 import spotifyIcon from "../assets/icons/spotify.svg";
 import { CollectContext } from "../context/collectData.context";
@@ -10,9 +11,7 @@ import { AuthContext } from "../context/auth.context";
 const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID as string;
 const SPOTIFY_AUTHORIZE_ENDPOINT: string =
   "https://accounts.spotify.com/authorize?";
-// const REDIRECT_URL_AFTER_LOGIN: string = "http://localhost:5173/result";
 
-// Uncomment if publish is ready
 const REDIRECT_URL_AFTER_LOGIN: string =
   "https://arale-spotify-project.netlify.app/result";
 
@@ -38,14 +37,12 @@ const ConnectAndSave: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="buttonWrapper">
       {playlistSaved ? (
         <div>
           <button className="SaveButton buttonFont disable blackFont">
-            <div className="buttonIconWrapper">
-              <img src={addIcon} alt="small plus icon inside of a circle" />
-            </div>
-            Successfully saved
+            <Saved width="24" height="24" />
+            Playlist saved
           </button>
         </div>
       ) : (
@@ -53,10 +50,8 @@ const ConnectAndSave: React.FC = () => {
           className="SaveButton buttonFont blackFont"
           onClick={handleStartClick}
         >
-          <div className="buttonIconWrapper">
-            <img src={addIcon} alt="small plus icon inside of a circle" />
-          </div>
-          Save to Your Library
+          <Save width="24" height="24" />
+          Save playlist
         </button>
       )}
       {isOverlayOpen && (
@@ -99,24 +94,6 @@ const ConnectAndSaveOverlay: React.FC<ConnectAndSaveOverlayProps> = ({
 
   const handleLogin = () => {
     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAMS}&response_type=token&show_dialog=true`;
-
-    // // If you want to open the authorization in a seperate window
-    // const spotifyAuthUrl = `${SPOTIFY_AUTHORIZE_ENDPOINT}client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAMS}&response_type=token&show_dialog=true`;
-
-    // // Set the size of the window
-    // const width = 500;
-    // const height = 600;
-
-    // // Calculate the positon of the window (its now in the middle)
-    // const left = window.screen.width / 2 - width / 2;
-    // const top = window.screen.height / 2 - height / 2;
-
-    // // Open the window in the setted size and position
-    // window.open(
-    //   spotifyAuthUrl,
-    //   "_blank",
-    //   `width=${width},height=${height},top=${top},left=${left}`
-    // );
   };
 
   const getUserInfo = () => {

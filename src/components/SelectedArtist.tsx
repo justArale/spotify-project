@@ -28,16 +28,15 @@ const SelectedArtist: React.FC = () => {
               />
             )}
           </div>
-          <div className="resultPlaylistText">
-            <h3 className="headline whiteFont">Your New Playlist</h3>
-            <h2 className="resultTitle whiteFont">
-              {choosenMood} with {choosenArtistName}
+          <div className="resultPlaylistInnerContent">
+            <h2 className="pageTitle whiteFont">
+              {choosenMood} with <br /> {choosenArtistName}
             </h2>
+            <div className="actionButtons">
+              <ConnectAndSave />
+              <CreateButton />
+            </div>
           </div>
-        </div>
-        <div className="actionButtons">
-          <ConnectAndSave />
-          <CreateButton />
         </div>
       </div>
     </div>

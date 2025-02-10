@@ -25,11 +25,11 @@
   src: url("../src/assets/font/Montserrat-SemiBold.ttf") format("truetype");
 }
 
-/* Bold */
+/* ExtraBold */
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
   font-display: swap;
-  src: url("../src/assets/font/Montserrat-Bold.ttf") format("truetype");
+  src: url("../src/assets/font/Montserrat-ExtraBold.ttf") format("truetype");
 }
