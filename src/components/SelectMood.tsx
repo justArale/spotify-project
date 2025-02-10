@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import arrowIcon from "../assets/icons/arrow.svg";
 import { CollectContext } from "../context/collectData.context";
+import { ArrowRight } from "@just1arale/icons";
 
 // const API_TRACK = `https://api.spotify.com/v1/audio-features/${trackId}/danceability`;
 
@@ -19,67 +19,69 @@ const SelectMood: React.FC<MoodProps> = ({ getDanceability }) => {
   return (
     <div className="contentFieldWrapper">
       <p className="bodyText">Step 2 of 2</p>
-      <h4 className="title">Select Mood</h4>
+      <h4 className="pageTitle">Select Mood</h4>
       <ul className="contentList">
         <li
           className="contentField contentListItem"
           onClick={() => moodSelector("Sleepy", 0.0, 0.2)}
         >
-          <p id="sleepy" className="inputFont contentText">
-            💤 <span>Sleepy</span>
+          <p
+            id="sleepy"
+            className="subHeadline artistImageWrapper emojiWrapper"
+          >
+            💤
           </p>
-          <img
-            src={arrowIcon}
-            alt="Icon of an arrow that shows to the right side"
-          />
+          <p className="subHeadline contentText">Sleepy</p>
+          <ArrowRight width="24" height="24" />
         </li>
         <li
           className="contentField contentListItem"
           onClick={() => moodSelector("Calm", 0.201, 0.4)}
         >
-          <p id="calm" className="inputFont contentText">
-            🛁 <span>Calm</span>
+          <p id="calm" className="subHeadline artistImageWrapper emojiWrapper">
+            🛁
           </p>
-          <img
-            src={arrowIcon}
-            alt="Icon of an arrow that shows to the right side"
-          />
+          <p className="subHeadline contentText">Calm</p>
+          <ArrowRight width="24" height="24" />
         </li>
         <li
           className="contentField contentListItem"
           onClick={() => moodSelector("Studying", 0.401, 0.6)}
         >
-          <p id="studying" className="inputFont contentText">
-            📚 <span>Studying</span>
+          <p
+            id="studying"
+            className="subHeadline artistImageWrapper emojiWrapper"
+          >
+            📚
           </p>
-          <img
-            src={arrowIcon}
-            alt="Icon of an arrow that shows to the right side"
-          />
+          <p className="subHeadline contentText">Studying</p>
+          <ArrowRight width="24" height="24" />
         </li>
         <li
           className="contentField contentListItem"
           onClick={() => moodSelector("Cooking", 0.601, 0.8)}
         >
-          <p id="cooking" className="inputFont contentText">
-            🍳 <span>Cooking</span>
+          <p
+            id="cooking"
+            className="subHeadline artistImageWrapper emojiWrapper"
+          >
+            🍳
           </p>
-          <img
-            src={arrowIcon}
-            alt="Icon of an arrow that shows to the right side"
-          />
+          <p className="subHeadline contentText">Cooking</p>
+          <ArrowRight width="24" height="24" />
         </li>
         <li
           className="contentField contentListItem"
           onClick={() => moodSelector("Dancing", 0.801, 1)}
         >
-          <p id="dancing" className="inputFont contentText">
-            🕺 <span>Dancing</span>
+          <p
+            id="dancing"
+            className="subHeadline artistImageWrapper emojiWrapper"
+          >
+            🕺
           </p>
-          <img
-            src={arrowIcon}
-            alt="Icon of an arrow that shows to the right side"
-          />
+          <p className="subHeadline contentText">Dancing</p>
+          <ArrowRight width="24" height="24" />
         </li>
       </ul>
     </div>

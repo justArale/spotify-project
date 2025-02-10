@@ -234,7 +234,7 @@ const SearchArtist: React.FC<ArtistProps> = ({ getArtistId }) => {
                   </div>
                 )}
 
-              <span className="inputFont contentText">{artist.name}</span>
+              <span className="subHeadline contentText">{artist.name}</span>
               <ArrowRight width="24" height="24" />
             </li>
           ))}
