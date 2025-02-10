@@ -5,8 +5,6 @@
   justify-content: center;
   align-items: center;
   padding: 24px;
-  /* padding-top: 72px;
-  padding-bottom: 48px; */
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -37,7 +35,6 @@
 .resultHeaderContentWrapper {
   max-width: 400px;
   width: 100%;
-  /* padding: 0 16px; */
   display: flex;
   flex-direction: column;
   justify-content: center;

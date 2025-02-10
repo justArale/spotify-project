@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./SearchArtist.css";
-// import arrowIcon from "../assets/icons/arrow.svg";
-// import searchIcon from "../assets/icons/search.svg";
 import { CollectContext } from "../context/collectData.context";
 import { Search } from "@just1arale/icons";
 import { ArrowRight } from "@just1arale/icons";

@@ -1,10 +1,4 @@
-/* .headerWraper {
-  width: 100%;
-  background: center right / cover no-repeat url("../assets/Cover.png") #ffc91a;
-} */
-
 .headerContentWrapper {
-  /* padding: 96px 0; */
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -12,24 +6,14 @@
 }
 
 .headerContent {
-  /* margin: auto; */
   width: 100%;
   max-width: var(--inner-width);
   box-sizing: border-box;
-  /* padding: 0 32px; */
 }
 
 .headphoneWrapper {
   display: none;
 }
-
-/* .headerContent .headline {
-  margin-bottom: 8px;
-}
-
-.headerContent .pageTitle {
-  margin-bottom: 32px;
-} */
 
 @media (min-width: 725px) {
   .headerWrapper {

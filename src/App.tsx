@@ -4,7 +4,6 @@ import Landingpage from "./pages/Landingpage";
 import Resultpage from "./pages/Resultpage";
 import Errorpage from "./pages/Errorpage";
 import Generatepage from "./pages/Generatepage";
-// import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         <Route path="/result" element={<Resultpage />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
-      {/* <Footer /> */}
     </div>
   );
 }

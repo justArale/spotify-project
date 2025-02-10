@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { CollectContext } from "../context/collectData.context";
 import { ArrowRight } from "@just1arale/icons";
-
-// const API_TRACK = `https://api.spotify.com/v1/audio-features/${trackId}/danceability`;
-
 interface MoodProps {
   getDanceability: (min: number, max: number) => void;
 }

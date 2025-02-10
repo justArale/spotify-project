@@ -1,8 +1,6 @@
 import React, { useContext, useState } from "react";
 import { CollectContext } from "../context/collectData.context";
 import "./Playlist.css";
-// import playIcon from "../assets/icons/play.svg";
-// import pauseIcon from "../assets/icons/pause.svg";
 import baseEllipseIcon from "../assets/icons/loadingEllipse.svg";
 import loadingEllipseIcon from "../assets/icons/fullEllipse.svg";
 import { Play } from "@just1arale/icons";

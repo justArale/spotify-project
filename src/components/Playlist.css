@@ -28,34 +28,6 @@
   opacity: 0.5;
 }
 
-/* .trackNumberWrapper {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .trackNumber {
-  font-size: var(--font-size-xsmall);
-  font-weight: var(--font-weight-bold);
-  color: #8060c0;
-  margin: 0;
-} */
-
-/* .trackName {
-  font-size: 18px;
-  font-weight: var(--font-weight-semiBold);
-  margin: 0;
-} */
-
-/* .trackArtistName {
-  font-size: 14px;
-  font-weight: var(--font-weight-medium);
-  color: #6030c0;
-  margin: 0;
-} */
-
 .audioIconWrapper {
   position: relative;
   display: flex;

@@ -3,11 +3,6 @@
 :root {
   --background-color: 205, 209, 206;
   --main-color: 36, 48, 51;
-  /* --main-color: #6030bf;
-  --secondary-color: #f6f2ff;
-  --result-color: #9f8fbf;
-  --box-background: #f6f2ff;
-  --color-green: #1ed760; */
   --color-black: 0, 0, 0;
   --color-white: 255, 255, 255;
 
@@ -44,10 +39,6 @@
 .whiteFont {
   color: rgb(var(--color-white));
 }
-
-/* .mainColor {
-  color: var(--main-color);
-} */
 
 .pageTitle {
   font-size: var(--font-size-xlarge);
@@ -113,63 +104,3 @@
     font-size: var(--font-size-xxlarge);
   }
 }
-
-/* old Font */
-
-/* .resultTitle {
-  font-size: var(--font-size-xlarge);
-  font-weight: var(--font-weight-black);
-  line-height: 1.5em;
-  margin: 0;
-}
-
-.pageTitle {
-  font-size: var(--font-size-xlarge);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.5em;
-  margin: 0;
-}
-
-.title {
-  font-size: var(--font-size-medium);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.5em;
-  margin: 0;
-}
-
-.headline {
-  font-size: var(--font-size-medium);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5em;
-  margin: 0;
-}
-
-.mainFont {
-  font-size: var(--font-size-small);
-  font-weight: var(--font-weight-semiBold);
-  margin: 0;
-}
-
-.mainFontSmall {
-  font-size: var(--font-size-xsmall);
-  font-weight: var(--font-weight-semiBold);
-  margin: 0;
-}
-
-.inputFont {
-  font-size: var(--font-size-small);
-  font-weight: var(--font-weight-normal);
-  margin: 0;
-}
-
-.meta {
-  font-size: var(--font-size-xsmall);
-  font-weight: var(--font-weight-normal);
-  margin: 0;
-}
-
-.buttonFont {
-  font-size: var(--font-size-small);
-  font-weight: var(--font-weight-bold);
-  margin: 0;
-} */

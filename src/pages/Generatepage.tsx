@@ -7,9 +7,7 @@ import LoadingPlaylist from "../components/LoadingPlaylist";
 import "../components/Generatepage.css";
 
 const Generatepage: React.FC = () => {
-  // const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
   const [accessToken, setAccessToken] = useState<string>("");
-  // const { setArtistID, setDanceMin, setDanceMax } = useContext(CollectContext);
   const {
     artistID,
     setArtistID,
@@ -73,7 +71,6 @@ const Generatepage: React.FC = () => {
           artistID={artistID}
           danceMin={danceMin}
           danceMax={danceMax}
-          // onClose={onClose}
         />
       ) : null}
     </div>
