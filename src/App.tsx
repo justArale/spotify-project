@@ -3,17 +3,17 @@ import { Routes, Route } from "react-router-dom";
 import Landingpage from "./pages/Landingpage";
 import Resultpage from "./pages/Resultpage";
 import Errorpage from "./pages/Errorpage";
-import Footer from "./components/Footer";
+import Generatepage from "./pages/Generatepage";
 
 function App() {
   return (
     <div className="page">
       <Routes>
         <Route path="/" element={<Landingpage />} />
+        <Route path="/generate" element={<Generatepage />} />
         <Route path="/result" element={<Resultpage />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

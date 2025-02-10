@@ -1,0 +1,6 @@
+@media (min-width: 725px) {
+  .resultPageWrapper {
+    gap: 24px;
+    padding: 64px;
+  }
+}
